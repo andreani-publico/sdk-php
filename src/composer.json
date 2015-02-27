@@ -1,0 +1,11 @@
+{
+    "name": "eandreani/sdk-php",
+    "description": "SDK de Andreani para PHP",
+    "keywords": ["andreani", "sdk"],
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Andreani\\": "src/Andreani/"
+        }
+    }
+}
