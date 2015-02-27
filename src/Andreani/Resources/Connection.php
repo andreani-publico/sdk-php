@@ -11,21 +11,21 @@
      
      public function __construct(AuthHeader $authHeader) {
          $this->authHeader = $authHeader;
-         $jsonConfiguration = file_get_contents('webservices.json');
+         $jsonConfiguration = file_get_contents(__DIR__ . '/webservices.json');
          $this->configuration = json_decode($jsonConfiguration);
      }
      
      public function makeCall($webservice,$arguments){
         try{
-            $client = $this->getClient($this->configuration[$webservice]['url']);
-            $message = $client->__soapCall($this->configuration[$webservice]['method'], $arguments);
+            $client = $this->getClient($this->configuration->$webservice->url,$this->configuration->$webservice->headers);
+            $message = $client->__soapCall($this->configuration->$webservice->method, $arguments);
             return new Response($message);
         } catch (\SoapFault $e){
             return new Response($e->getMessage(), false);
         }         
      }
      
-     protected function getClient($url){
+     protected function getClient($url,$headers = array()){
         $options = array(
             'soap_version' => SOAP_1_2,
             'exceptions' => true,
@@ -34,7 +34,9 @@
         );
 
         $client         = new \SoapClient($url, $options);		
-        $client->__setSoapHeaders(array($this->authHeader));
+        if(in_array('auth', $headers)){
+            $client->__setSoapHeaders(array($this->authHeader));
+        }
         
         return $client;
      }

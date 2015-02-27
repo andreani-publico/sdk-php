@@ -9,7 +9,7 @@ class Trazabilidad{
     protected $codigoDeCliente;
     
     public function getNumeroDePieza() {
-        return $this->numeroDePieza;
+        return (string) $this->numeroDePieza;
     }
 
     public function setNumeroDePieza($numeroDePieza) {
@@ -18,7 +18,7 @@ class Trazabilidad{
     }
 
     public function getNumeroDeEnvio() {
-        return $this->numeroDeEnvio;
+        return (string) $this->numeroDeEnvio;
     }
 
     public function setNumeroDeEnvio($numeroDeEnvio) {
@@ -27,7 +27,7 @@ class Trazabilidad{
     }
 
     public function getCodigoDeCliente() {
-        return $this->codigoDeCliente;
+        return (string) $this->codigoDeCliente;
     }
 
     public function setCodigoDeCliente($codigoDeCliente) {
