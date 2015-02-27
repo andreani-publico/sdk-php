@@ -1,9 +1,9 @@
 {
-    "name": "complementos",
-    "description": "Complementos de eCommerce",
+    "name": "andreani/sdk-php",
+    "description": "SDK de Andreani para PHP",
     "type": "library",
     "license": "Unlicense",
     "autoload": {
-        "psr-4": {"Andreani": "src/Andreani"}
+        "psr-0": {"Andreani": "src/Andreani"}
     }
 }
