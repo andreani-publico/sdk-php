@@ -4,17 +4,20 @@ namespace Andreani;
 
 use Andreani\Consultas\Cotizacion;
 use Andreani\Consultas\Trazabilidad;
-use Andreani\Resources\AuthHeader;
+use Andreani\Resources\WsseAuthHeader;
+use Andreani\Resources\ArgumentConverter;
 use Andreani\Resources\Connection;
 
 class Andreani{
     
     protected $connection;
+    protected $converter;
     
     public function __construct($username,$password) {
-        $authHeader = new AuthHeader($username, $password);
+        $authHeader = new WsseAuthHeader($username, $password);
         $connection = new Connection($authHeader);
         $this->connection = $connection;
+        $this->converter = new ArgumentConverter();
     }
     
     /**
@@ -23,17 +26,8 @@ class Andreani{
      * @return \Andreani\Resources\Response
      */
     public function cotizar(Cotizacion $consulta){
-        $arguments = array(
-            'CPDestino'=> $consulta->getCodigoPostal(),
-            'Cliente'=>$consulta->getCodigoDeCliente(),
-            'Contrato'=>$consulta->getNumeroDeContrato(),
-            'Peso'=>$consulta->getPeso(),
-            'SucursalRetiro'=>$consulta->getCodigoDeSucursal(),
-            'Volumen'=>$consulta->getVolumen(),
-            'ValorDeclarado' => $consulta->getValorDeclarado()
-        );
-        
-        return $this->connection->makeCall('cotizacion', $arguments);
+        $arguments = $this->converter->convert($consulta);
+        return $this->connection->call('cotizacion', $arguments);
     }
  
     /**
@@ -42,17 +36,8 @@ class Andreani{
      * @return \Andreani\Resources\Response
      */
     public function obtenerTrazabilidad(Trazabilidad $consulta){
-        $arguments = array(
-            'ObtenerTrazabilidad' => array(
-                'Pieza' => array(
-                    'NroPieza' => $consulta->getNumeroDePieza(), 
-                    'NroAndreani' => $consulta->getNumeroDeEnvio(), 
-                    'CodigoCliente' => $consulta->getCodigoDeCliente(),
-                )
-            )
-        );
-        
-        return $this->connection->makeCall('trazabilidad', $arguments);
+        $arguments = $this->converter->convert($consulta);
+        return $this->connection->call('trazabilidad', $arguments);
     }
     
 }

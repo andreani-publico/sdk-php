@@ -7,9 +7,9 @@ class Response{
     protected $valid;
     protected $message;
     
-    public function __construct($message,$isValid = true) {
+    public function __construct($message,$valid = true) {
         $this->setMessage($message);
-        $this->setIsValid($isValid);
+        $this->setValid($valid);
     }
     
     public function getMessage() {
@@ -25,8 +25,8 @@ class Response{
         return $this->valid;
     }
     
-    public function setIsValid($isValid){
-        $this->valid = $this->isValid();
+    public function setValid($valid){
+        $this->valid = $valid;
     }
     
 }

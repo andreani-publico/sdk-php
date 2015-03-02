@@ -1,7 +1,8 @@
 <?php
 
  namespace Andreani\Resources;
- use Andreani\Resources\AuthHeader;
+ 
+ use Andreani\Resources\WsseAuthHeader;
  use Andreani\Resources\Response;
  
  class Connection{
@@ -9,16 +10,21 @@
      protected $configuration;
      protected $authHeader;
      
-     public function __construct(AuthHeader $authHeader) {
+     public function __construct(WsseAuthHeader $authHeader) {
          $this->authHeader = $authHeader;
          $jsonConfiguration = file_get_contents(__DIR__ . '/webservices.json');
          $this->configuration = json_decode($jsonConfiguration);
      }
      
-     public function makeCall($webservice,$arguments){
+     public function call($webservice,$arguments){
         try{
             $client = $this->getClient($this->configuration->$webservice->url,$this->configuration->$webservice->headers);
-            $message = $client->__soapCall($this->configuration->$webservice->method, $arguments);
+            $method = $this->configuration->$webservice->method;
+            if(in_array('auth', $this->configuration->$webservice->headers)){
+                $message = $client->$method($arguments);
+            } else {
+                $message = $client->__soapCall($method,$arguments);
+            }
             return new Response($message);
         } catch (\SoapFault $e){
             return new Response($e->getMessage(), false);
