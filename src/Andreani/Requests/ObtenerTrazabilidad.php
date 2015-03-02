@@ -1,8 +1,10 @@
 <?php
 
-namespace Andreani\Consultas;
+namespace Andreani\Requests;
 
-class Trazabilidad{
+use Andreani\Resources\WebserviceRequest;
+
+class ObtenerTrazabilidad implements WebserviceRequest{
     
     protected $numeroDePieza;
     protected $numeroDeEnvio;
@@ -33,6 +35,10 @@ class Trazabilidad{
     public function setCodigoDeCliente($codigoDeCliente) {
         $this->codigoDeCliente = $codigoDeCliente;
         return $this;
+    }
+
+    public function getWebserviceIndex() {
+        return 'trazabilidad';
     }
 
 }

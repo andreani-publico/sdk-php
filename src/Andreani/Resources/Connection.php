@@ -12,15 +12,13 @@
      
      public function __construct(WsseAuthHeader $authHeader) {
          $this->authHeader = $authHeader;
-         $jsonConfiguration = file_get_contents(__DIR__ . '/webservices.json');
-         $this->configuration = json_decode($jsonConfiguration);
      }
      
-     public function call($webservice,$arguments){
+     public function call($configuration,$arguments){
         try{
-            $client = $this->getClient($this->configuration->$webservice->url,$this->configuration->$webservice->headers);
-            $method = $this->configuration->$webservice->method;
-            if(in_array('auth', $this->configuration->$webservice->headers)){
+            $client = $this->getClient($configuration->url,$configuration->headers);
+            $method = $configuration->method;
+            if(in_array('auth', $configuration->headers)){
                 $message = $client->$method($arguments);
             } else {
                 $message = $client->__soapCall($method,$arguments);

@@ -1,8 +1,10 @@
 <?php
 
-namespace Andreani\Consultas;
+namespace Andreani\Requests;
 
-class Cotizacion{
+use Andreani\Resources\WebserviceRequest;
+
+class CotizarEnvio implements WebserviceRequest{
     
     protected $codigoDeCliente;
     protected $numeroDeContrato;
@@ -73,6 +75,10 @@ class Cotizacion{
     public function setValorDeclarado($valorDeclarado) {
         $this->valorDeclarado = (int) $valorDeclarado;
         return $this;
+    }
+
+    public function getWebserviceIndex() {
+        return 'cotizacion';
     }
     
 }

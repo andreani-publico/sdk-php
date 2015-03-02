@@ -2,11 +2,13 @@
 
 namespace Andreani\Resources;
 
-class ArgumentConverter{
+use Andreani\Resources\WebserviceRequest;
+
+class SoapArgumentConverter{
     
-    public function convert($consulta){
-        if($consulta instanceof \Andreani\Consultas\Cotizacion) return $this->convertCotizacion($consulta);
-        if($consulta instanceof \Andreani\Consultas\Trazabilidad) return $this->convertTrazabilidad ($consulta);
+    public function getArgumentChain(WebserviceRequest $consulta){
+        if($consulta->getWebserviceIndex() == 'cotizacion') return $this->convertCotizacion($consulta);
+        if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad ($consulta);
     }
     
     protected function convertCotizacion($consulta){

@@ -2,42 +2,37 @@
 
 namespace Andreani;
 
-use Andreani\Consultas\Cotizacion;
-use Andreani\Consultas\Trazabilidad;
 use Andreani\Resources\WsseAuthHeader;
-use Andreani\Resources\ArgumentConverter;
 use Andreani\Resources\Connection;
+use Andreani\Resources\WebserviceRequest;
+use Andreani\Resources\SoapArgumentConverter;
 
 class Andreani{
     
     protected $connection;
-    protected $converter;
+    protected $configuration;
     
-    public function __construct($username,$password) {
+    public function __construct($username,$password,$environment = 'prod') {
+        $this->configuration = $this->getConfiguration($environment);
+        $this->connection = $this->getConnection($username, $password);
+    }
+    
+    public function call(WebserviceRequest $consulta){
+        $index = $consulta->getWebserviceIndex();
+        $configuration = $this->configuration->$index;
+        $converter = new SoapArgumentConverter();
+        
+        return $this->connection->call($configuration, $converter->getArgumentChain($consulta));
+    }
+    
+    protected function getConfiguration($environment){
+        $configuration = json_decode(file_get_contents(__DIR__ . '/Resources/webservices.json'));
+        return $configuration->$environment;
+    }
+    
+    protected function getConnection($username,$password){
         $authHeader = new WsseAuthHeader($username, $password);
-        $connection = new Connection($authHeader);
-        $this->connection = $connection;
-        $this->converter = new ArgumentConverter();
-    }
-    
-    /**
-     * 
-     * @param \Andreani\Consultas\Cotizacion $consulta
-     * @return \Andreani\Resources\Response
-     */
-    public function cotizar(Cotizacion $consulta){
-        $arguments = $this->converter->convert($consulta);
-        return $this->connection->call('cotizacion', $arguments);
-    }
- 
-    /**
-     * 
-     * @param \Andreani\Consultas\Trazabilidad $consulta
-     * @return \Andreani\Resources\Response
-     */
-    public function obtenerTrazabilidad(Trazabilidad $consulta){
-        $arguments = $this->converter->convert($consulta);
-        return $this->connection->call('trazabilidad', $arguments);
+        return new Connection($authHeader);
     }
     
 }

@@ -1,12 +1,26 @@
 {
-    "cotizacion": {
-        "url": "https://www.e-andreani.com/CASAWS/eCommerce/CotizacionEnvio.svc?wsdl",
-        "method": "CotizarEnvio",
-        "headers": ["auth"]
+    "prod": {
+        "cotizacion": {
+            "url": "https://www.e-andreani.com/CASAWS/eCommerce/CotizacionEnvio.svc?wsdl",
+            "method": "CotizarEnvio",
+            "headers": ["auth"]
+        },
+        "trazabilidad": {
+            "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
+            "method": "ObtenerTrazabilidad",
+            "headers": []
+        }
     },
-    "trazabilidad": {
-        "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
-        "method": "ObtenerTrazabilidad",
-        "headers": []
+    "test": {
+        "cotizacion": {
+            "url": "https://www.e-andreani.com/CasaStaging/eCommerce/CotizacionEnvio.svc?wsdl",
+            "method": "CotizarEnvio",
+            "headers": ["auth"]
+        },
+        "trazabilidad": {
+            "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
+            "method": "ObtenerTrazabilidad",
+            "headers": []
+        }
     }
 }
