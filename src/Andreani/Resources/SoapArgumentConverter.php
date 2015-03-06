@@ -13,6 +13,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
+        if($consulta->getWebserviceIndex() == 'confirmacion_compra_con_recibo') return $this->convertConfirmacionCompraConRecibo($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -78,6 +79,44 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'Localidad'=>$consulta->getLocalidad(),
                 'CodigoPostal'=>$consulta->getCodigoPostal(),
                 'Provincia'=>$consulta->getProvincia()
+            )
+        );
+        
+        return $arguments;
+    }
+    
+    protected function convertConfirmacionCompraConRecibo($consulta){
+        $arguments = array(
+            'compra' => array(
+                'Calle' => $consulta->getCalle(),
+                'CategoriaDistancia' => $consulta->getCategoriaDistancia(),
+                'CategoriaFacturacion' => $consulta->getCategoriaFacturacion(),
+                'CategoriaPeso' => $consulta->getCategoriaPeso(),
+                'CodigoPostalDestino' =>$consulta->getCodigoPostal(),
+                'Contrato' => $consulta->getNumeroDeContrato(),
+                'Departamento' =>$consulta->getDepartamento(),
+                'DetalleProductosEntrega' => $consulta->getDetalleProductosEntrega(),
+                'DetalleProductosRetiro' => $consulta->getDetalleProductosRetiro(),
+                'Email' => $consulta->getEmail(),
+                'Localidad' =>$consulta->getLocalidad(),
+                'NombreApellido' =>$consulta->getNombreYApellido(),
+                'NombreApellidoAlternativo' => $consulta->getNombreYApellidoAlternativo(),
+                'Numero' => $consulta->getNumero(),
+                'NumeroCelular' => $consulta->getNumeroDeCelular(),
+                'NumeroDocumento' => $consulta->getNumeroDeDocumento(),
+                'NumeroTelefono' => $consulta->getNumeroDeTelefono(),
+                'NumeroTransaccion' => $consulta->getNumeroDeTransaccion(),
+                'Peso' => $consulta->getPeso(),
+                'Piso' => $consulta->getPiso(),
+                'Provincia' => $consulta->getProvincia(),
+                'SucursalCliente' => $consulta->getSucursalCliente(),
+                'SucursalRetiro' => $consulta->getCodigoDeSucursal(),
+                'Tarifa' => $consulta->getTarifa(),
+                'TipoDocumento' => $consulta->getTipoDeDocumento(),
+                'ValorACobrar' => $consulta->getValorACobrar(),
+                'ValorDeclarado' => $consulta->getValorDeclarado(),
+                'Volumen' => $consulta->getVolumen(),
+                'NumeroRecibo' => $consulta->getNumeroDeRecibo()
             )
         );
         
