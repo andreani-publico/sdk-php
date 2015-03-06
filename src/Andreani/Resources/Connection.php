@@ -18,7 +18,7 @@
         try{
             $client = $this->getClient($configuration->url,$configuration->headers);
             $method = $configuration->method;
-            if(in_array('auth', $configuration->headers)){
+            if($configuration->message_type == 'external'){
                 $message = $client->$method($arguments);
             } else {
                 $message = $client->__soapCall($method,$arguments);

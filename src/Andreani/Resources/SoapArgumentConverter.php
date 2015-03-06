@@ -9,8 +9,9 @@ class SoapArgumentConverter implements ArgumentConverter{
     
     public function getArgumentChain(WebserviceRequest $consulta){
         if($consulta->getWebserviceIndex() == 'cotizacion') return $this->convertCotizacion($consulta);
-        if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad ($consulta);
-        if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia ($consulta);
+        if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad($consulta);
+        if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
+        if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -34,7 +35,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         $arguments = array(
             'ObtenerTrazabilidad' => array(
                 'Pieza' => array(
-                    'NroPieza' => $consulta->getNumeroDePieza(), 
+                    'NroPieza' => $consulta->getReferenciaExterna(), 
                     'NroAndreani' => $consulta->getNumeroDeEnvio(), 
                     'CodigoCliente' => $consulta->getCodigoDeCliente(),
                 )
@@ -51,6 +52,22 @@ class SoapArgumentConverter implements ArgumentConverter{
             )
         );   
         
+        return $arguments;
+    }
+    
+    protected function convertEstadoDistribucion($consulta){
+        $arguments = array(
+            'Consulta' => array(
+                'CodigoCliente' => $consulta->getCodigoDeCliente(),
+                'Piezas' => array(
+                    'Pieza' => array(
+                        'NroPieza' => $consulta->getReferenciaExterna(),
+                        'NroAndreani' => $consulta->getNumeroDeEnvio()
+                    )
+                )
+            )
+        );
+//var_dump($arguments);exit;
         return $arguments;
     }
     

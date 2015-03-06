@@ -7,34 +7,52 @@
             "cotizacion": {
                 "url": "https://www.e-andreani.com/CASAWS/eCommerce/CotizacionEnvio.svc?wsdl",
                 "method": "CotizarEnvio",
-                "headers": ["auth"]
+                "headers": ["auth"],
+                "message_type":"external"
             },
             "trazabilidad": {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerTrazabilidad",
-                "headers": []
+                "headers": [],
+                "message_type":"internal"
             },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
-                "headers": ["auth"]
+                "headers": ["auth"],
+                "message_type":"external"
+            },
+            "estado_distribucion" : {
+                "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external"
             }
         },
         "test": {
             "cotizacion": {
                 "url": "https://www.e-andreani.com/CasaStaging/eCommerce/CotizacionEnvio.svc?wsdl",
                 "method": "CotizarEnvio",
-                "headers": ["auth"]
+                "headers": ["auth"],
+                "message_type":"external"
             },
             "trazabilidad": {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerTrazabilidad",
-                "headers": []
+                "headers": [],
+                "message_type":"internal"
             },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
-                "headers": ["auth"]
+                "headers": ["auth"],
+                "message_type":"external"
+            },
+            "estado_distribucion" : {
+                "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external"
             }
         }
     }

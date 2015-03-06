@@ -4,14 +4,23 @@ namespace Andreani\Requests;
 
 use Andreani\Resources\WebserviceRequest;
 
-class ObtenerTrazabilidad implements WebserviceRequest{
+class ObtenerEstadoDistribucion implements WebserviceRequest{
     
+    protected $codigoDeCliente;
     protected $referenciaExterna;
     protected $numeroDeEnvio;
-    protected $codigoDeCliente;
     
+    public function getCodigoDeCliente() {
+        return (string) $this->codigoDeCliente;
+    }
+
+    public function setCodigoDeCliente($codigoDeCliente) {
+        $this->codigoDeCliente = $codigoDeCliente;
+        return $this;
+    }
+
     public function getReferenciaExterna() {
-        return $this->referenciaExterna;
+        return (string) $this->referenciaExterna;
     }
 
     public function setReferenciaExterna($referenciaExterna) {
@@ -28,17 +37,8 @@ class ObtenerTrazabilidad implements WebserviceRequest{
         return $this;
     }
 
-    public function getCodigoDeCliente() {
-        return (string) $this->codigoDeCliente;
-    }
-
-    public function setCodigoDeCliente($codigoDeCliente) {
-        $this->codigoDeCliente = $codigoDeCliente;
-        return $this;
-    }
-
     public function getWebserviceIndex() {
-        return 'trazabilidad';
+        return 'estado_distribucion';
     }
 
 }
