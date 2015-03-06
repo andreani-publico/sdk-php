@@ -4,6 +4,6 @@
     "type": "library",
     "license": "Unlicense",
     "autoload": {
-        "psr-0": {"Andreani": "src/Andreani"}
+        "psr-0": {"Andreani\\": "/andreani/sdk-php/src"}
     }
 }
