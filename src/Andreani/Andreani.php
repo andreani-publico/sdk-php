@@ -5,12 +5,13 @@ namespace Andreani;
 use Andreani\Resources\WsseAuthHeader;
 use Andreani\Resources\Connection;
 use Andreani\Resources\WebserviceRequest;
-use Andreani\Resources\SoapArgumentConverter;
+
 
 class Andreani{
     
     protected $connection;
     protected $configuration;
+    protected $argumentConverter;
     
     public function __construct($username,$password,$environment = 'prod',$configurationFile = null) {
         $this->configuration = $this->getConfiguration($environment,$configurationFile);
@@ -20,15 +21,16 @@ class Andreani{
     public function call(WebserviceRequest $consulta){
         $index = $consulta->getWebserviceIndex();
         $configuration = $this->configuration->$index;
-        $converter = new SoapArgumentConverter();
         
-        return $this->connection->call($configuration, $converter->getArgumentChain($consulta));
+        return $this->connection->call($configuration, $this->argumentConverter->getArgumentChain($consulta));
     }
     
     protected function getConfiguration($environment, $configurationFile = null){
-        $path = $configurationFile?:__DIR__ . '/Resources/webservices.json';
+        $path = $configurationFile?:__DIR__ . '/Resources/config.json';
         $configuration = json_decode(file_get_contents($path));
-        return $configuration->$environment;
+        $argumentConverterClassname = $configuration->resources->argument_converter;
+        $this->argumentConverter = new $argumentConverterClassname();
+        return $configuration->webservices->$environment;
     }
     
     protected function getConnection($username,$password){

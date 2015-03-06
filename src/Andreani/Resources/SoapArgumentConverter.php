@@ -3,12 +3,14 @@
 namespace Andreani\Resources;
 
 use Andreani\Resources\WebserviceRequest;
+use Andreani\Resources\ArgumentConverter;
 
-class SoapArgumentConverter{
+class SoapArgumentConverter implements ArgumentConverter{
     
     public function getArgumentChain(WebserviceRequest $consulta){
         if($consulta->getWebserviceIndex() == 'cotizacion') return $this->convertCotizacion($consulta);
         if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad ($consulta);
+        if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia ($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -39,6 +41,16 @@ class SoapArgumentConverter{
             )
         );
 
+        return $arguments;
+    }
+    
+    protected function convertImpresionConstancia($consulta){
+        $arguments = array(
+            'entities'=> array(
+                'ParamImprimirConstancia'=>array('NumeroAndreani'=>$consulta->getNumeroDeEnvio())
+            )
+        );   
+        
         return $arguments;
     }
     

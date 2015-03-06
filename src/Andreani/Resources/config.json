@@ -1,0 +1,41 @@
+{
+    "resources": {
+        "argument_converter": "\\Andreani\\Resources\\SoapArgumentConverter"
+    },
+    "webservices": {
+        "prod": {
+            "cotizacion": {
+                "url": "https://www.e-andreani.com/CASAWS/eCommerce/CotizacionEnvio.svc?wsdl",
+                "method": "CotizarEnvio",
+                "headers": ["auth"]
+            },
+            "trazabilidad": {
+                "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
+                "method": "ObtenerTrazabilidad",
+                "headers": []
+            },
+            "impresion_constancia" : {
+                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
+                "method": "ImprimirConstancia",
+                "headers": ["auth"]
+            }
+        },
+        "test": {
+            "cotizacion": {
+                "url": "https://www.e-andreani.com/CasaStaging/eCommerce/CotizacionEnvio.svc?wsdl",
+                "method": "CotizarEnvio",
+                "headers": ["auth"]
+            },
+            "trazabilidad": {
+                "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
+                "method": "ObtenerTrazabilidad",
+                "headers": []
+            },
+            "impresion_constancia" : {
+                "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
+                "method": "ImprimirConstancia",
+                "headers": ["auth"]
+            }
+        }
+    }
+}
