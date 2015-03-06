@@ -27,6 +27,12 @@
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
                 "message_type":"external"
+            },
+            "sucursales" : {
+                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ConsultaSucursales.svc?wsdl",
+                "method": "ConsultarSucursales",
+                "headers": ["auth"],
+                "message_type":"external"
             }
         },
         "test": {
@@ -52,6 +58,12 @@
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
+                "message_type":"external"
+            },
+            "sucursales" : {
+                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ConsultaSucursales.svc?wsdl",
+                "method": "ConsultarSucursales",
+                "headers": ["auth"],
                 "message_type":"external"
             }
         }

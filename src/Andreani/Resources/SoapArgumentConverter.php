@@ -12,6 +12,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad($consulta);
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
+        if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -67,7 +68,19 @@ class SoapArgumentConverter implements ArgumentConverter{
                 )
             )
         );
-//var_dump($arguments);exit;
+
+        return $arguments;
+    }
+    
+    protected function convertSucursales($consulta){
+        $arguments = array(
+            'consulta'=>array(
+                'Localidad'=>$consulta->getLocalidad(),
+                'CodigoPostal'=>$consulta->getCodigoPostal(),
+                'Provincia'=>$consulta->getProvincia()
+            )
+        );
+        
         return $arguments;
     }
     
