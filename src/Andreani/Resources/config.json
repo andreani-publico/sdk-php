@@ -34,9 +34,9 @@
                 "headers": ["auth"],
                 "message_type":"external"
             },
-            "confirmacion_compra_con_recibo" : {
+            "confirmacion_compra" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
-                "method": "ConfirmarCompraConRecibo",
+                "method": "ConfirmarCompra",
                 "headers": ["auth"],
                 "message_type":"external"
             }
@@ -72,9 +72,9 @@
                 "headers": ["auth"],
                 "message_type":"external"
             },
-            "confirmacion_compra_con_recibo" : {
+            "confirmacion_compra" : {
                 "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
-                "method": "ConfirmarCompraConRecibo",
+                "method": "ConfirmarCompra",
                 "headers": ["auth"],
                 "message_type":"external"
             }

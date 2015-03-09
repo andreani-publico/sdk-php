@@ -4,7 +4,7 @@ namespace Andreani\Requests;
 
 use Andreani\Resources\WebserviceRequest;
 
-class ConfirmarCompraConRecibo implements WebserviceRequest{
+class ConfirmarCompra implements WebserviceRequest{
     
     // Sobre el destino
     protected $provincia;
@@ -29,7 +29,6 @@ class ConfirmarCompraConRecibo implements WebserviceRequest{
     // Sobre la transaccion
     protected $numeroDeContrato;
     protected $numeroDeTransaccion;
-    protected $numeroDeRecibo;
     protected $tarifa;
     protected $valorACobrar;
     
@@ -246,15 +245,6 @@ class ConfirmarCompraConRecibo implements WebserviceRequest{
         return $this;
     }
 
-    public function getNumeroDeRecibo() {
-        return $this->numeroDeRecibo;
-    }
-
-    public function setNumeroDeRecibo($numeroDeRecibo) {
-        $this->numeroDeRecibo = $numeroDeRecibo;
-        return $this;
-    }
-
     public function getTarifa() {
         return $this->tarifa;
     }
@@ -346,7 +336,7 @@ class ConfirmarCompraConRecibo implements WebserviceRequest{
     }
 
     public function getWebserviceIndex() {
-        return 'confirmacion_compra_con_recibo';
+        return 'confirmacion_compra';
     }
     
 }
