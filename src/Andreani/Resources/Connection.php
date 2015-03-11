@@ -14,18 +14,18 @@
          $this->authHeader = $authHeader;
      }
      
-     public function call($configuration,$arguments){
+     public function call($configuration,$arguments,$expose = false){
+        $client = $this->getClient($configuration->url,$configuration->headers);
+        $method = $configuration->method;
         try{
-            $client = $this->getClient($configuration->url,$configuration->headers);
-            $method = $configuration->method;
             if($configuration->message_type == 'external'){
                 $message = $client->$method($arguments);
             } else {
                 $message = $client->__soapCall($method,$arguments);
             }
-            return new Response($message);
+            return $this->getResponse($message, true, $expose, $client);
         } catch (\SoapFault $e){
-            return new Response($e->getMessage(), false);
+            return $this->getResponse($e->getMessage(), false, $expose, $client);
         }         
      }
      
@@ -43,6 +43,20 @@
         }
         
         return $client;
+     }
+     
+     protected function getResponse($message,$valid,$expose,$client){
+        $response = new Response($message, $valid);
+        if($expose){
+            $extra = new \stdClass();
+            $extra->request->headers = $client->__getLastRequestHeaders();
+            $extra->request->body = $client->__getLastRequest();
+            $extra->response->headers = $client->__getLastResponseHeaders();
+            $extra->response->body = $client->__getLastResponse();
+            $response->setExtra($extra);
+        }
+        
+        return $response;
      }
      
  }

@@ -6,10 +6,12 @@ class Response{
     
     protected $valid;
     protected $message;
+    protected $extra;
     
-    public function __construct($message,$valid = true) {
+    public function __construct($message,$valid = true,$extra = null) {
         $this->setMessage($message);
         $this->setValid($valid);
+        $this->setExtra($extra);
     }
     
     public function getMessage() {
@@ -27,6 +29,14 @@ class Response{
     
     public function setValid($valid){
         $this->valid = $valid;
+    }
+    
+    public function getExtra() {
+        return $this->extra;
+    }
+
+    public function setExtra($extra) {
+        $this->extra = $extra;
     }
     
 }
