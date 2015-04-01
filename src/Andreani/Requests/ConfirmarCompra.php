@@ -82,7 +82,7 @@ class ConfirmarCompra implements WebserviceRequest{
                 ->setVolumen($volumen)
                 ->setValorDeclarado($valorDeclarado);
     }
-    
+ 
     public function getProvincia() {
         return $this->provincia;
     }

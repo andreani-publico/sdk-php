@@ -13,7 +13,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
-        if($consulta->getWebserviceIndex() == 'confirmacion_compra_con_recibo') return $this->convertConfirmacionCompraConRecibo($consulta);
+        if($consulta->getWebserviceIndex() == 'confirmacion_compra') return $this->convertConfirmacionCompra($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -85,7 +85,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         return $arguments;
     }
     
-    protected function convertConfirmacionCompraConRecibo($consulta){
+    protected function convertConfirmacionCompra($consulta){
         $arguments = array(
             'compra' => array(
                 'Calle' => $consulta->getCalle(),
@@ -115,11 +115,10 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'TipoDocumento' => $consulta->getTipoDeDocumento(),
                 'ValorACobrar' => $consulta->getValorACobrar(),
                 'ValorDeclarado' => $consulta->getValorDeclarado(),
-                'Volumen' => $consulta->getVolumen(),
-                'NumeroRecibo' => $consulta->getNumeroDeRecibo()
+                'Volumen' => $consulta->getVolumen()
             )
         );
-        
+
         return $arguments;
     }
     
