@@ -34,6 +34,9 @@ Los pasos a seguir serían los siguientes:
 Ejemplo para realizar una cotización de prueba:
 
 ```php
+    use Andreani\Andreani;
+    use Andreani\Requests\CotizarEnvio;
+
     // Los siguientes datos son de prueba, para la implementación en un entorno productivo deberán reemplazarse por los verdaderos
     $request = new CotizarEnvio();
     $request->setCodigoDeCliente('ANDCORREO');
@@ -45,13 +48,12 @@ Ejemplo para realizar una cotización de prueba:
 
     $andreani = new Andreani('eCommerce_Integra','passw0rd','test');
     $response = $andreani->call($request);
-
     if($response->isValid()){
         $tarifa = $response->getMessage()->CotizarEnvioResult->Tarifa;
         echo "La cotización funcionó bien y la tarifa es $tarifa";
     } else {
         echo "La cotización falló, el mensaje de error es el siguiente";
-        var_dump($response->getMessage();
+        var_dump($response->getMessage());
     }
 ```
 

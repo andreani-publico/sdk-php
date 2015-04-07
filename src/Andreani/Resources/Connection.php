@@ -49,6 +49,8 @@
         $response = new Response($message, $valid);
         if($expose){
             $extra = new \stdClass();
+            $extra->request = new \stdClass();
+            $extra->response = new \stdClass();
             $extra->request->headers = $client->__getLastRequestHeaders();
             $extra->request->body = $client->__getLastRequest();
             $extra->response->headers = $client->__getLastResponseHeaders();
