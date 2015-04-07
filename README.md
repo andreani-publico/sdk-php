@@ -7,7 +7,7 @@
 <a name="instalacion"></a>
 ## Instalación:
 
-Para las instrucciones de instalación se presume que su aplicación utiliza [Composer](https://getcomposer.org/){:target="_blank"}, si en su proyecto no tiene incorporada esta herramienta (primero considere utilizarla, ¡es muy útil!) deberá descargar el repositorio completo y definir manualmente los namespaces (o hacer los `includes` según corresponda).
+Para las instrucciones de instalación se presume que su aplicación utiliza [Composer](https://getcomposer.org/), si en su proyecto no tiene incorporada esta herramienta (primero considere utilizarla, ¡es muy útil!) deberá descargar el repositorio completo y definir manualmente los namespaces (o hacer los `includes` según corresponda).
 
 ###### Agregue la siguiente línea dentro de la sección `require` de su composer.json
 
