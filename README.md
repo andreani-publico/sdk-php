@@ -7,22 +7,22 @@
 <a name="instalacion"></a>
 ## Instalación:
 
-Por el momento es un pre requisito utilizar Composer para la gestión de las dependencias. Si en su proyecto no tiene incorporada esta herramienta (primero considere utilizarla, ¡es muy útil!) deberá descargar el repositorio completo y definir manualmente los namespaces.
+Para las instrucciones de instalación se presume que su aplicación utiliza [Composer](https://getcomposer.org/){:target="_blank"}, si en su proyecto no tiene incorporada esta herramienta (primero considere utilizarla, ¡es muy útil!) deberá descargar el repositorio completo y definir manualmente los namespaces (o hacer los `includes` según corresponda).
 
-##### Agregue la siguiente línea dentro del require de su composer.json
+###### Agregue la siguiente línea dentro de la sección `require` de su composer.json
 
 ```json
     "andreani/sdk-php": "dev-master"
 ```
 
-##### Corra el comando `composer.phar update` y una vez finalizado el proceso debería ver el directorio "andreani" dentro de sus vendors.
+###### Corra el comando `composer.phar update` y una vez finalizado el proceso debería ver el directorio "andreani" dentro de sus vendors.
 
 <a name="uso"></a>
 ## Uso:
 
-Las llamadas a los servicios de Andreani están modeladas en objetos del tipo WebserviceRequest (a partir de la implementación de una interfaz). Este SDK trae incorporadas probablemente todas las llamadas que vaya a necesitar (más adelante se explica como desarrollar llamadas propias e incorporarlas al circuito).
+Las llamadas a los servicios de Andreani están modeladas en objetos del tipo WebserviceRequest (a partir de la implementación de una interfaz). Este SDK trae incorporadas probablemente todas las llamadas que vaya a necesitar (más abajo se explica como desarrollar llamadas propias e incorporarlas al circuito).
 
-Por otro lado, la clase principal que gestiona la comunicación es la clase Andreani. Para instanciarla se debe pasar como parámetros obligatorios el `username` y el `password`. Opcionalmente se le puede pasar un entorno (`test` para que apunte al entorno de pruebas de Andreani, por defecto está seteado en `prod`).
+Por otro lado, la clase principal que gestiona la comunicación es la clase Andreani. Para instanciarla se debe pasar como parámetros obligatorios el `username` y el `password`. Opcionalmente se le puede pasar un entorno (`test` para que apunte al entorno de pruebas de Andreani, por defecto `prod` para producción).
 
 Los pasos a seguir serían los siguientes:
 
@@ -34,15 +34,16 @@ Los pasos a seguir serían los siguientes:
 Ejemplo para realizar una cotización de prueba:
 
 ```php
+    // Los siguientes datos son de prueba, para la implementación en un entorno productivo deberán reemplazarse por los verdaderos
     $request = new CotizarEnvio();
-    $request->setCodigoDeCliente($miCodigoDeCliente);
-    $request->setNumeroDeContrato($miNumeroDeContrato);
-    $request->setCodigoPostal($codigoPostal);
-    $request->setPeso($peso);
-    $request->setVolumen($volumen);
-    $request->setValorDeclarado($valorDeclarado);
+    $request->setCodigoDeCliente('ANDCORREO');
+    $request->setNumeroDeContrato('AND00EST');
+    $request->setCodigoPostal('1014');
+    $request->setPeso(500);
+    $request->setVolumen(100);
+    $request->setValorDeclarado(100);
 
-    $andreani = new Andreani("USERNAME",$password,'test');
+    $andreani = new Andreani('eCommerce_Integra','passw0rd','test');
     $response = $andreani->call($request);
 
     if($response->isValid()){
@@ -101,7 +102,7 @@ class MiRequest implements WebserviceRequest{
     "webservices": {
         "prod": {
             "mi_request": {
-                "url": "https://www.e-andreani.com/CASAWS/eCommerce/WebserviceAMedida.svc?wsdl", #aqui va la url real del webservice
+                "url": "https://www.e-andreani.com/CASAWS/eCommerce/WebserviceAMedida.svc?wsdl", #va la url real del webservice
                 "method": "Metodo", #el nombre del método
                 "headers": ["auth"], #los headers que utiliza, normalmente 'auth' cuando requiere autenticación o un array vacío cuando no la requiere
                 "message_type":"external"
