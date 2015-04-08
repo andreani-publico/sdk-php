@@ -15,12 +15,12 @@ Para las instrucciones de instalación se presume que su aplicación utiliza [Co
     "andreani/sdk-php": "dev-master"
 ```
 
-###### Corra el comando `composer.phar update` y una vez finalizado el proceso debería ver el directorio "andreani" dentro de sus vendors.
+###### Corra el comando `composer update` y una vez finalizado el proceso debería ver el directorio "andreani" dentro de sus vendors.
 
 <a name="uso"></a>
 ## Uso:
 
-Las llamadas a los servicios de Andreani están modeladas en objetos del tipo WebserviceRequest (a partir de la implementación de una interfaz). Este SDK trae incorporadas probablemente todas las llamadas que vaya a necesitar (más abajo se explica como desarrollar llamadas propias e incorporarlas al circuito).
+Las llamadas a los servicios de Andreani están modeladas en objetos que implementan la interfaz WebserviceRequest. Este SDK trae incorporadas probablemente todas las llamadas que vaya a necesitar (más abajo se explica como desarrollar llamadas propias e incorporarlas al circuito).
 
 Por otro lado, la clase principal que gestiona la comunicación es la clase Andreani. Para instanciarla se debe pasar como parámetros obligatorios el `username` y el `password`. Opcionalmente se le puede pasar un entorno (`test` para que apunte al entorno de pruebas de Andreani, por defecto `prod` para producción).
 
@@ -64,13 +64,13 @@ Como se muestra en el ejemplo, toda llamada devuelve un objeto del tipo Response
 
 Si necesita desarrollar sus propias llamadas a los webservices (por ejemplo, por si tiene en los sistemas de Andreani un webservice hecho a medida) puede hacerlo y aún utilizar el sdk.
 
-Cada nueva llamada constará de lo siguiente:
+Los pasos serían los siguientes:
 
-1. Una clase que implemente la interfaz `Andreani\Resources\WebserviceRequest`
-2. Datos de configuración
-3. Adapter del request a los parámetros del webservice.
+1. Desarrollar una clase que implemente la interfaz `Andreani\Resources\WebserviceRequest`. Esta interfaz lo obligará a implementar el método `getWebserviceRequest` que deberá retornar un índice que la identifique.
+2. Generar un archivo del tipo `json` para la configuración. Este archivo contiene la configuración de cada webservice (identificado por el índice del paso anterior).
+3. Adapter del request a los parámetros del webservice, es decir, una clase cuya responsabilidad es generar (a partir de un WebserviceRequest) los parámetros necesarios para la consulta. La clase a utilizar también se define en el archivo de configuración.
 
-Por defecto se tomarán los datos en los archivos del SDK, lo que tiene que hacer es generar sus propios archivos y pasarlos como parámetro a los objetos instanciados, veamos unos ejemplos.
+Ejemplo de una llamada propia:
 
 ```php
 namespace MiApp\Requests;
@@ -104,7 +104,7 @@ class MiRequest implements WebserviceRequest{
     "webservices": {
         "prod": {
             "mi_request": {
-                "url": "https://www.e-andreani.com/CASAWS/eCommerce/WebserviceAMedida.svc?wsdl", #va la url real del webservice
+                "url": "https://www.e-andreani.com/CASAWS/eCommerce/WebserviceAMedida.svc?wsdl", #url del webservice
                 "method": "Metodo", #el nombre del método
                 "headers": ["auth"], #los headers que utiliza, normalmente 'auth' cuando requiere autenticación o un array vacío cuando no la requiere
                 "message_type":"external"
@@ -147,5 +147,3 @@ class MiArgumentConverter implements ArgumentConverter{
 
 }
 ```
-
-El Request tiene un índice único que lo identifica en el archivo de configuración. El ArgumentConverter tiene la responsabilidad de saber cómo obtener de un Request los parámetros concretos para enviar al webservice.
