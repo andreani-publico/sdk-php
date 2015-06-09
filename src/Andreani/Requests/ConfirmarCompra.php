@@ -64,10 +64,9 @@ class ConfirmarCompra implements WebserviceRequest{
                 ->setNumeroDeTelefono($numeroDeTelefono);
     }
     
-    public function setDatosTransaccion($numeroDeContrato = null,$numeroDeRecibo = null,$numeroDeTransaccion = null,$tarifa = null,$valorACobrar = null){
+    public function setDatosTransaccion($numeroDeContrato = null,$numeroDeTransaccion = null,$tarifa = null,$valorACobrar = null){
         $this ->setNumeroDeContrato($numeroDeContrato)
                 ->setNumeroDeTransaccion($numeroDeTransaccion)
-                ->setNumeroDeRecibo($numeroDeRecibo)
                 ->setTarifa($tarifa)
                 ->setValorACobrar($valorACobrar);
     }
