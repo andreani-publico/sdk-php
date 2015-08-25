@@ -51,7 +51,7 @@
                 "method": "GenerarEnviosDeEntregaYRetiroConDatosDeImpresion",
                 "headers": ["auth"],
                 "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "soap_version": "SOAP_1_1"
             }
         },
         "test": {
@@ -102,13 +102,6 @@
                 "method": "GenerarEnviosDeEntregaYRetiroConDatosDeImpresion",
                 "headers": [],
                 "message_type":"external",
-                "soap_version": "SOAP_1_1"
-            },
-            "consultar_datos_de_impresion" : {
-                "url": "https://bpmwmbsrvtest.andreani.com:7084/Ecommerce/DatosImpresion?wsdl",
-                "method": "ConsultarDatosDeImpresion",
-                "headers": [],
-                "message_type":"",
                 "soap_version": "SOAP_1_1"
             }
         }

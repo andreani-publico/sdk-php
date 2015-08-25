@@ -15,7 +15,6 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
         if($consulta->getWebserviceIndex() == 'confirmacion_compra') return $this->convertConfirmacionCompra($consulta);
         if($consulta->getWebserviceIndex() == 'generar_envios_de_entrega_y_retiro_con_datos_de_impresion') return $this->convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta);
-        if($consulta->getWebserviceIndex() == 'consultar_datos_de_impresion') return $this->convertConsultarDatosDeImpresion($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -145,14 +144,14 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'TelefonoCelular' =>$consulta->getTelefonoCelular(),
                 'CategoriaPeso' => $consulta->getCategoriaPeso(),
                 'Peso' =>$consulta->getPeso(),
-                //'DetalleDeProductosAEntregar' =>$consulta->getDetalleDeProductosAEntregar(),
+                'DetalleDeProductosAEntregar' =>$consulta->getDetalleDeProductosAEntregar(),
                 'DetalleDeProductosARetirar' =>$consulta->getDetalleDeProductosARetirar(),
                 'Volumen' => $consulta->getVolumen(),
                 'ValorDeclaradoConIva' => $consulta->getValorDeclaradoConIva(),
                 'Contrato' => $consulta->getContrato(),
-                //'IdCliente' => $consulta->getIdCliente(),
+                'IdCliente' => $consulta->getIdCliente(),
                 'SucursalDeRetiro' =>$consulta->getSucursalDeRetiro()
-                //'FechasPactadas' =>$consulta->getFechasPactadas(),
+                'FechasPactadas' =>$consulta->getFechasPactadas(),
             )
         );
 
