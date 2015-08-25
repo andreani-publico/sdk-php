@@ -14,6 +14,8 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
         if($consulta->getWebserviceIndex() == 'confirmacion_compra') return $this->convertConfirmacionCompra($consulta);
+        if($consulta->getWebserviceIndex() == 'generar_envios_de_entrega_y_retiro_con_datos_de_impresion') return $this->convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta);
+        if($consulta->getWebserviceIndex() == 'consultar_datos_de_impresion') return $this->convertConsultarDatosDeImpresion($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -116,6 +118,51 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'ValorACobrar' => $consulta->getValorACobrar(),
                 'ValorDeclarado' => $consulta->getValorDeclarado(),
                 'Volumen' => $consulta->getVolumen()
+            )
+        );
+
+        return $arguments;
+    }
+    
+    protected function convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta){
+        $arguments = array(
+            'parametros' => array(
+                'Provincia' =>$consulta->getProvincia(),
+                'Localidad' =>$consulta->getLocalidad(),
+                'CodigoPostal' =>$consulta->getCodigoPostal(),
+                'Calle' =>$consulta->getCalle(),
+                'Numero' =>$consulta->getNumero(),
+                'Piso' =>$consulta->getPiso(),
+                'Departamento' =>$consulta->getDepartamento(),
+                'Nombre' =>$consulta->getNombre(),
+                'Apellido' =>$consulta->getApellido(),
+                'NombreAlternativo' =>$consulta->getNombreAlternativo(),
+                'ApellidoAlternativo' =>$consulta->getApellidoAlternativo(),
+                'TipoDeDocumento' =>$consulta->getTipoDeDocumento(),
+                'NumeroDeDocumento' =>$consulta->getNumeroDeDocumento(),
+                'Email' =>$consulta->getEmail(),
+                'TelefonoFijo' =>$consulta->getTelefonoFijo(),
+                'TelefonoCelular' =>$consulta->getTelefonoCelular(),
+                'CategoriaPeso' => $consulta->getCategoriaPeso(),
+                'Peso' =>$consulta->getPeso(),
+                //'DetalleDeProductosAEntregar' =>$consulta->getDetalleDeProductosAEntregar(),
+                'DetalleDeProductosARetirar' =>$consulta->getDetalleDeProductosARetirar(),
+                'Volumen' => $consulta->getVolumen(),
+                'ValorDeclaradoConIva' => $consulta->getValorDeclaradoConIva(),
+                'Contrato' => $consulta->getContrato(),
+                //'IdCliente' => $consulta->getIdCliente(),
+                'SucursalDeRetiro' =>$consulta->getSucursalDeRetiro()
+                //'FechasPactadas' =>$consulta->getFechasPactadas(),
+            )
+        );
+
+        return $arguments;
+    }
+
+    protected function convertConsultarDatosDeImpresion($consulta) {
+        $arguments = array(
+            'parametros' => array(
+                'NumeroAndreani' => array('asd')
             )
         );
 
