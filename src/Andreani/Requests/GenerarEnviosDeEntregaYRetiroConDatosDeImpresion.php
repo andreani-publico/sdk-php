@@ -30,7 +30,6 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
    
     // Sobre la transaccion
     protected $contrato;
-    //protected $fechasPactadas;
     
     // Sobre el envio
     protected $categoriaPeso;
@@ -64,9 +63,8 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
                 ->setTelefonoFijo($telefonoFijo);
     }
     
-    public function setDatosTransaccion($contrato = null/*, $fechasPactadas = null*/){
+    public function setDatosTransaccion($contrato = null){
         $this ->setContrato($contrato);
-                //->setFechasPactadas($fechasPactadas);
     }
     
     public function setDatosEnvio($categoriaPeso = null, $peso = null, $volumen = null, $valorDeclaradoConIva = null, $detalleDeProductosAEntregar = null, $detalleDeProductosARetirar = null){
@@ -305,18 +303,6 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
 
         return $this;
     }
-
-    /*public function getFechasPactadas()
-    {
-        return $this->fechasPactadas;
-    }
-
-    protected function setFechasPactadas($fechasPactadas)
-    {
-        $this->fechasPactadas = $fechasPactadas;
-
-        return $this;
-    }*/
 
     public function getCategoriaPeso()
     {

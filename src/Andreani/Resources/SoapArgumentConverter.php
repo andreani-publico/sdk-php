@@ -151,17 +151,6 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'Contrato' => $consulta->getContrato(),
                 'IdCliente' => $consulta->getIdCliente(),
                 'SucursalDeRetiro' =>$consulta->getSucursalDeRetiro()
-                'FechasPactadas' =>$consulta->getFechasPactadas(),
-            )
-        );
-
-        return $arguments;
-    }
-
-    protected function convertConsultarDatosDeImpresion($consulta) {
-        $arguments = array(
-            'parametros' => array(
-                'NumeroAndreani' => array('asd')
             )
         );
 
