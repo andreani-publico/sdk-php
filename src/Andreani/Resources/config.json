@@ -8,43 +8,37 @@
                 "url": "https://www.e-andreani.com/CASAWS/eCommerce/CotizacionEnvio.svc?wsdl",
                 "method": "CotizarEnvio",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "trazabilidad": {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerTrazabilidad",
                 "headers": [],
-                "message_type":"internal",
-                "soap_version": "SOAP_1_2"
+                "message_type":"internal"
             },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "estado_distribucion" : {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "sucursales" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ConsultaSucursales.svc?wsdl",
                 "method": "ConsultarSucursales",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "confirmacion_compra" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ConfirmarCompra",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "generar_envios_de_entrega_y_retiro_con_datos_de_impresion" : {
                 "url": "https://bpmwmbsrvtest.andreani.com:7084/Ecommerce/DatosImpresion?wsdl",
@@ -59,48 +53,42 @@
                 "url": "https://www.e-andreani.com/CasaStaging/eCommerce/CotizacionEnvio.svc?wsdl",
                 "method": "CotizarEnvio",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "trazabilidad": {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerTrazabilidad",
                 "headers": [],
-                "message_type":"internal",
-                "soap_version": "SOAP_1_2"
+                "message_type":"internal"
             },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "estado_distribucion" : {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "sucursales" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ConsultaSucursales.svc?wsdl",
                 "method": "ConsultarSucursales",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "confirmacion_compra" : {
                 "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ConfirmarCompra",
                 "headers": ["auth"],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2"
+                "message_type":"external"
             },
             "generar_envios_de_entrega_y_retiro_con_datos_de_impresion" : {
                 "url": "https://bpmwmbsrvtest.andreani.com:7084/Ecommerce/DatosImpresion?wsdl",
                 "method": "GenerarEnviosDeEntregaYRetiroConDatosDeImpresion",
-                "headers": [],
+                "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"
             }

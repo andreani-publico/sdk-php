@@ -4,7 +4,6 @@
  
  use Andreani\Resources\WsseAuthHeader;
  use Andreani\Resources\Response;
- use Andreani\Resources\CustomSoapClient;
  
  class Connection{
      
@@ -16,8 +15,10 @@
      }
      
      public function call($configuration,$arguments,$expose = false){
-        $client = $this->getClient($configuration->url,$configuration->headers, $configuration->soap_version);
+        $soapVersion = property_exists($configuration, 'soap_version') ? $configuration->soap_version : "SOAP_1_2";
+        $client = $this->getClient($configuration->url,$configuration->headers, $soapVersion);
         $method = $configuration->method;
+
         try{
             if($configuration->message_type == 'external'){
                 $message = $client->$method($arguments);
