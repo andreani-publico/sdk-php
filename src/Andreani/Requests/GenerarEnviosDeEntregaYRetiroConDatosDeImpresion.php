@@ -14,8 +14,9 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
     protected $numero;
     protected $piso;
     protected $departamento;
-    protected $sucursalDeRetiro;
     protected $idCliente;
+    protected $sucursalDeRetiro;
+    protected $sucursalDelCliente;
     
     // Sobre el destinatario
     protected $nombre;
@@ -39,7 +40,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
     protected $volumen;
     protected $ValorDeclaradoConIva;
     
-    public function setDatosDestino($provincia = null, $localidad = null, $codigoPostal = null, $calle = null, $numero = null, $piso = null, $departamento = null, $sucursalDeRetiro = null, $idCliente = null){
+    public function setDatosDestino($provincia = null, $localidad = null, $codigoPostal = null, $calle = null, $numero = null, $piso = null, $departamento = null, $idCliente = null, $sucursalDeRetiro = null, $sucursalDelCliente = null){
         $this ->setProvincia($provincia)
                 ->setLocalidad($localidad)
                 ->setCodigoPostal($codigoPostal)
@@ -47,8 +48,9 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
                 ->setNumero($numero)
                 ->setPiso($piso)
                 ->setDepartamento($departamento)
+                ->setIdCliente($idCliente)
                 ->setSucursalDeRetiro($sucursalDeRetiro)
-                ->setIdCliente($idCliente);
+                ->setSucursalDelCliente($sucursalDelCliente);
     }
     
     public function setDatosDestinatario($nombre = null, $apellido = null, $nombreAlternativo = null, $apellidoAlternativo = null, $tipoDeDocumento = null, $numeroDeDocumento = null, $email = null, $telefonoCelular = null, $telefonoFijo = null){
@@ -372,6 +374,18 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
     protected function setValorDeclaradoConIva($ValorDeclaradoConIva)
     {
         $this->ValorDeclaradoConIva = $ValorDeclaradoConIva;
+
+        return $this;
+    }
+
+    public function getSucursalDelCliente()
+    {
+        return $this->sucursalDelCliente;
+    }
+
+    public function setSucursalDelCliente($sucursalDelCliente)
+    {
+        $this->sucursalDelCliente = $sucursalDelCliente;
 
         return $this;
     }

@@ -150,7 +150,8 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'ValorDeclaradoConIva' => $consulta->getValorDeclaradoConIva(),
                 'Contrato' => $consulta->getContrato(),
                 'IdCliente' => $consulta->getIdCliente(),
-                'SucursalDeRetiro' =>$consulta->getSucursalDeRetiro()
+                'SucursalDeRetiro' =>$consulta->getSucursalDeRetiro(),
+                'SucursalDelCliente' =>$consulta->getSucursalDelCliente()
             )
         );
 
