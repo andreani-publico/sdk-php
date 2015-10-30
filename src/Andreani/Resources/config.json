@@ -41,7 +41,7 @@
                 "message_type":"external"
             },
             "generar_envios_de_entrega_y_retiro_con_datos_de_impresion" : {
-                "url": "https://bpmwmbsrvtest.andreani.com:7084/Ecommerce/DatosImpresion?wsdl",
+                "url": "https://bpmwmbsrv.andreani.com:41443/DatosImpresion?wsdl",
                 "method": "GenerarEnviosDeEntregaYRetiroConDatosDeImpresion",
                 "headers": ["auth"],
                 "message_type":"external",
