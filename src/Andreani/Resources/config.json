@@ -46,6 +46,13 @@
                 "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"
+            },
+            "generar_envio_con_datos_de_impresion_y_remitente" : {
+                "url": "https://",
+                "method": "GenerarEnvioConDatosDeImpresionYRemitente",
+                "headers": ["auth"],
+                "message_type":"external",
+                "soap_version": "SOAP_1_1"
             }
         },
         "test": {
