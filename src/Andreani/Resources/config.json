@@ -100,10 +100,10 @@
                 "soap_version": "SOAP_1_1"
             },
             "generar_envio_con_datos_de_impresion_y_remitente" : {
-                "url": "https://",
+                "url": "http://pfstestsrv.andreani.com.ar:9732/DatosImpresion.svc?wsdl",
                 "method": "GenerarEnvioConDatosDeImpresionYRemitente",
-                "headers": ["auth"],
-                "message_type":"external",
+                "headers": [],
+                "message_type":"internal",
                 "soap_version": "SOAP_1_1"
             }
         }

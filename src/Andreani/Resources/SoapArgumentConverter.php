@@ -164,7 +164,7 @@ class SoapArgumentConverter implements ArgumentConverter{
             'parametros' => array(
                 'contrato' =>$consulta->getContrato(),
                 'idCliente' =>$consulta->getIdCliente(),
-                'valorDeclaradoConIVA' =>$consulta->getValorDeclaradoConIVA(),
+                'ValorDeclaradoConIva' =>$consulta->getValorDeclaradoConIVA(),
                 'pesoNetoDelEnvioEnGr' =>$consulta->getPesoNetoDelEnvioEnGr(),
                 'volumenDelEnvioEnCm3' =>$consulta->getVolumenDelEnvioEnCm3(),
                 'categoriaPeso' =>$consulta->getCategoriaPeso(),
@@ -201,7 +201,7 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'numeroDomicilioDestinatario' =>$consulta->getNumeroDomicilioDestinatario(),
                 'pisoDestinatario' =>$consulta->getPisoDestinatario(),
                 'departamentoDestinatario' =>$consulta->getDepartamentoDestinatario(),
-                'sucursalRetiro' =>$consulta->getSucursalRetiro(),
+                'sucursalRetiro' =>$consulta->getSucursalDeRetiro(),
                 'fechaDesde' =>$consulta->getFechaDesde(),
                 'fechaHasta' =>$consulta->getFechaHasta()
             )

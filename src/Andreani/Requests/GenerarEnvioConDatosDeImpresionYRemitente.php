@@ -23,7 +23,7 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
     protected $fechaHasta;
     
     // Sobre el remitente
-    protected $nombreRemintente;
+    protected $nombreRemitente;
     protected $apellidoRemitente;
     protected $tipoDocumentoRemitente;
     protected $numeroDocumentoRemitente;
@@ -58,44 +58,44 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
 
     
     
-    public function setDatosRemitente($nombreRemintente = null, $apellidoRemitente = null, $tipoDocumentoRemitente = null, $numeroDocumentoRemitente = null,
+    public function setDatosRemitente($nombreRemitente = null, $apellidoRemitente = null, $tipoDocumentoRemitente = null, $numeroDocumentoRemitente = null,
             $mailRemitente = null, $telefonoFijoRemitente = null, $telefonoCelularRemitente = null, $provinciaRemitente = null, $localidadRemitente = null,
             $codigoPostalRemitente = null, $calleRemitente = null, $numeroDomicilioRemitente = null, $pisoRemitente = null, $departamentoRemitente = null){
         
-        $this ->setNombreRemintente($nombreRemintente)
-                ->setApellidoRemitente($apellidoRemitente)
-                ->setTipoDocumentoRemitente($tipoDocumentoRemitente)
-                ->setNumeroDocumentoRemitente($numeroDocumentoRemitente)
-                ->setMailRemitente($mailRemitente)
-                ->setTelefonoFijoRemitente($telefonoFijoRemitente)
-                ->setTelefonoCelularRemitente($telefonoCelularRemitente)
-                ->setProvinciaRemitente($provinciaRemitente)
-                ->setLocalidadRemitente($localidadRemitente)
-                ->setCodigoPostalRemitente($codigoPostalRemitente)
-                ->setCalleRemitente($calleRemitente)
-                ->setNumeroDomicilioRemitente($numeroDomicilioRemitente)
-                ->setPisoRemitente($pisoRemitente)
-                ->setDepartamentoRemitente($departamentoRemitente);
+        $this->setNombreRemitente($nombreRemitente);
+        $this->setApellidoRemitente($apellidoRemitente);
+        $this->setTipoDocumentoRemitente($tipoDocumentoRemitente);
+        $this->setNumeroDocumentoRemitente($numeroDocumentoRemitente);
+        $this->setMailRemitente($mailRemitente);
+        $this->setTelefonoFijoRemitente($telefonoFijoRemitente);
+        $this->setTelefonoCelularRemitente($telefonoCelularRemitente);
+        $this->setProvinciaRemitente($provinciaRemitente);
+        $this->setLocalidadRemitente($localidadRemitente);
+        $this->setCodigoPostalRemitente($codigoPostalRemitente);
+        $this->setCalleRemitente($calleRemitente);
+        $this->setNumeroDomicilioRemitente($numeroDomicilioRemitente);
+        $this->setPisoRemitente($pisoRemitente);
+        $this->setDepartamentoRemitente($departamentoRemitente);
     }
     
     
     
     public function setDatosDestinatario($nombre = null, $apellido = null, $nombreAlternativo = null, $apellidoAlternativo = null, $tipoDeDocumento = null, $numeroDeDocumento = null, $email = null, $telefonoCelular = null, $telefonoFijo = null){
-        $this ->setNombre($nombre)
-                ->setApellido($apellido)
-                ->setNombreAlternativo($nombreAlternativo)
-                ->setApellidoAlternativo($apellidoAlternativo)
-                ->setTipoDeDocumento($tipoDeDocumento)
-                ->setNumeroDeDocumento($numeroDeDocumento)
-                ->setEmail($email)
-                ->setTelefonoCelular($telefonoCelular)
-                ->setTelefonoFijo($telefonoFijo);
+        $this->setNombreDestinatario($nombre);
+        $this->setApellidoDestinatario($apellido);
+        $this->setNombreAlternativoDestinatario($nombreAlternativo);
+        $this->setApellidoAlternativoDestinatario($apellidoAlternativo);
+        $this->setTipoDocumentoDestinatario($tipoDeDocumento);
+        $this->setNumeroDocumentoDestinatario($numeroDeDocumento);
+        $this->setMailDestinatario($email);
+        $this->setTelefonoCelularDestinatario($telefonoCelular);
+        $this->setTelefonoFijoDestinatario($telefonoFijo);
     }
     
     public function setDatosTransaccion($contrato = null, $idCliente = null){
         
-        $this->setContrato($contrato)
-                ->setIdCliente($idCliente);
+        $this->setContrato($contrato);
+        $this->setIdCliente($idCliente);
         
     }
     
@@ -103,16 +103,16 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
             $categoriaPeso = null, $detalleProductosEntregar = null, $detalleProductosRetirar = null, $sucursalImposicion = null, $sucursalDeRetiro = null,
             $fechaDesde = null, $fechaHasta = null){
         
-        $this->setValorDeclaradoConIVA($valorDeclaradoConIVA)
-                ->setPesoNetoDelEnvioEnGr($pesoNetoDelEnvioEnGr)
-                ->setVolumenDelEnvioEnCm3($volumenDelEnvioEnCm3)
-                ->setCategoriaPeso($categoriaPeso)
-                ->setDetalleProductosEntregar($detalleProductosEntregar)
-                ->setDetalleProductosRetirar($detalleProductosRetirar)
-                ->setSucursalImposicion($sucursalImposicion)
-                ->setSucursalDeRetiro($sucursalDeRetiro)
-                ->setFechaDesde($fechaDesde)
-                ->setFechaHasta($fechaHasta);
+        $this->setValorDeclaradoConIVA($valorDeclaradoConIVA);
+        $this->setPesoNetoDelEnvioEnGr($pesoNetoDelEnvioEnGr);
+        $this->setVolumenDelEnvioEnCm3($volumenDelEnvioEnCm3);
+        $this->setCategoriaPeso($categoriaPeso);
+        $this->setDetalleProductosEntregar($detalleProductosEntregar);
+        $this->setDetalleProductosRetirar($detalleProductosRetirar);
+        $this->setSucursalImposicion($sucursalImposicion);
+        $this->setSucursalDeRetiro($sucursalDeRetiro);
+        $this->setFechaDesde($fechaDesde);
+        $this->setFechaHasta($fechaHasta);
         
     }
     
@@ -214,12 +214,12 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
         $this->fechaHasta = $fechaHasta;
     }
 
-    function getNombreRemintente() {
-        return $this->nombreRemintente;
+    function getNombreRemitente() {
+        return $this->nombreRemitente;
     }
 
-    function setNombreRemintente($nombreRemintente) {
-        $this->nombreRemintente = $nombreRemintente;
+    function setNombreRemitente($nombreRemitente) {
+        $this->nombreRemitente = $nombreRemitente;
     }
 
     function getApellidoRemitente() {
