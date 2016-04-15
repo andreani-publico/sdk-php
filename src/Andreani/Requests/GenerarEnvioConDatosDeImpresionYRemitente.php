@@ -21,6 +21,7 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
     protected $sucursalDeRetiro;
     protected $fechaDesde;
     protected $fechaHasta;
+    protected $tarifa;
     
     // Sobre el remitente
     protected $nombreRemitente;
@@ -101,7 +102,7 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
     
     public function setDatosEnvio($valorDeclaradoConIVA = null, $pesoNetoDelEnvioEnGr = null, $volumenDelEnvioEnCm3 = null,
             $categoriaPeso = null, $detalleProductosEntregar = null, $detalleProductosRetirar = null, $sucursalImposicion = null, $sucursalDeRetiro = null,
-            $fechaDesde = null, $fechaHasta = null){
+            $fechaDesde = null, $fechaHasta = null, $tarifa = null){
         
         $this->setValorDeclaradoConIVA($valorDeclaradoConIVA);
         $this->setPesoNetoDelEnvioEnGr($pesoNetoDelEnvioEnGr);
@@ -113,6 +114,7 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
         $this->setSucursalDeRetiro($sucursalDeRetiro);
         $this->setFechaDesde($fechaDesde);
         $this->setFechaHasta($fechaHasta);
+        $this->setTarifa($tarifa);
         
     }
     
@@ -452,6 +454,14 @@ class GenerarEnvioConDatosDeImpresionYRemitente implements WebserviceRequest{
 
     function setDepartamentoDestinatario($departamentoDestinatario) {
         $this->departamentoDestinatario = $departamentoDestinatario;
+    }
+    
+    function getTarifa() {
+        return $this->tarifa;
+    }
+
+    function setTarifa($tarifa) {
+        $this->tarifa = $tarifa;
     }
         
     public function getWebserviceIndex() {

@@ -203,7 +203,8 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'departamentoDestinatario' =>$consulta->getDepartamentoDestinatario(),
                 'sucursalRetiro' =>$consulta->getSucursalDeRetiro(),
                 'fechaDesde' =>$consulta->getFechaDesde(),
-                'fechaHasta' =>$consulta->getFechaHasta()
+                'fechaHasta' =>$consulta->getFechaHasta(),
+                'tarifa' =>$consulta->getTarifa()
             )
         );
 
