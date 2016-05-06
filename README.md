@@ -39,8 +39,8 @@ Ejemplo para realizar una cotización de prueba:
 
     // Los siguientes datos son de prueba, para la implementación en un entorno productivo deberán reemplazarse por los verdaderos
     $request = new CotizarEnvio();
-    $request->setCodigoDeCliente('ANDCORREO');
-    $request->setNumeroDeContrato('AND00EST');
+    $request->setCodigoDeCliente('CL0003750');
+    $request->setNumeroDeContrato('400006709');
     $request->setCodigoPostal('1014');
     $request->setPeso(500);
     $request->setVolumen(100);
