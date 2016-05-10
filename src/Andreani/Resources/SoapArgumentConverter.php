@@ -15,6 +15,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
         if($consulta->getWebserviceIndex() == 'confirmacion_compra') return $this->convertConfirmacionCompra($consulta);
         if($consulta->getWebserviceIndex() == 'generar_envios_de_entrega_y_retiro_con_datos_de_impresion') return $this->convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta);
+        if($consulta->getWebserviceIndex() == 'generar_envio_con_datos_de_impresion_y_remitente') return $this->convertGenerarEnvioConDatosDeImpresionYRemitente($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -152,6 +153,58 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'IdCliente' => $consulta->getIdCliente(),
                 'SucursalDeRetiro' =>$consulta->getSucursalDeRetiro(),
                 'SucursalDelCliente' =>$consulta->getSucursalDelCliente()
+            )
+        );
+
+        return $arguments;
+    }
+    
+    protected function convertGenerarEnvioConDatosDeImpresionYRemitente($consulta){
+        $arguments = array(
+            'parametros' => array(
+                'contrato' =>$consulta->getContrato(),
+                'idCliente' =>$consulta->getIdCliente(),
+                'ValorDeclaradoConIva' =>$consulta->getValorDeclaradoConIVA(),
+                'pesoNetoDelEnvioEnGr' =>$consulta->getPesoNetoDelEnvioEnGr(),
+                'volumenDelEnvioEnCm3' =>$consulta->getVolumenDelEnvioEnCm3(),
+                'categoriaPeso' =>$consulta->getCategoriaPeso(),
+                'detalleProductosEntregar' =>$consulta->getDetalleProductosEntregar(),
+                'detalleProductosRetirar' =>$consulta->getDetalleProductosRetirar(),
+                'nombreRemitente' =>$consulta->getNombreRemitente(),
+                'apellidoRemitente' =>$consulta->getApellidoRemitente(),
+                'tipoDocumentoRemitente' =>$consulta->getTipoDocumentoRemitente(),
+                'numeroDocumentoRemitente' =>$consulta->getNumeroDocumentoRemitente(),
+                'mailRemitente' =>$consulta->getMailRemitente(),
+                'telefonoFijoRemitente' =>$consulta->getTelefonoFijoRemitente(),
+                'telefonoCelularRemitente' =>$consulta->getTelefonoCelularRemitente(),
+                'provinciaRemitente' =>$consulta->getProvinciaRemitente(),
+                'localidadRemitente' =>$consulta->getLocalidadRemitente(),
+                'codigoPostalRemitente' =>$consulta->getCodigoPostalRemitente(),
+                'calleRemitente' =>$consulta->getCalleRemitente(),
+                'numeroDomicilioRemitente' =>$consulta->getNumeroDomicilioRemitente(),
+                'pisoRemitente' =>$consulta->getPisoRemitente(),
+                'departamentoRemitente' =>$consulta->getDepartamentoRemitente(),
+                'sucursalImposicion' =>$consulta->getSucursalImposicion(),
+                'nombreDestinatario' =>$consulta->getNombreDestinatario(),
+                'apellidoDestinatario' =>$consulta->getApellidoDestinatario(),
+                'nombreAlternativoDestinatario' =>$consulta->getNombreAlternativoDestinatario(),
+                'apellidoAlternativoDestinatario' =>$consulta->getApellidoAlternativoDestinatario(),
+                'tipoDocumentoDestinatario' =>$consulta->getTipoDocumentoDestinatario(),
+                'numeroDocumentoDestinatario' =>$consulta->getNumeroDocumentoDestinatario(),
+                'mailDestinatario' =>$consulta->getMailDestinatario(),
+                'telefonoFijoDestinatario' =>$consulta->getTelefonoFijoDestinatario(),
+                'telefonoCelularDestinatario' =>$consulta->getTelefonoCelularDestinatario(),
+                'provinciaDestinatario' =>$consulta->getProvinciaDestinatario(),
+                'localidadDestinatario' =>$consulta->getLocalidadDestinatario(),
+                'codigoPostalDestinatario' =>$consulta->getCodigoPostalDestinatario(),
+                'calleDestinatario' =>$consulta->getCalleDestinatario(),
+                'numeroDomicilioDestinatario' =>$consulta->getNumeroDomicilioDestinatario(),
+                'pisoDestinatario' =>$consulta->getPisoDestinatario(),
+                'departamentoDestinatario' =>$consulta->getDepartamentoDestinatario(),
+                'sucursalRetiro' =>$consulta->getSucursalDeRetiro(),
+                'fechaDesde' =>$consulta->getFechaDesde(),
+                'fechaHasta' =>$consulta->getFechaHasta(),
+                'tarifa' =>$consulta->getTarifa()
             )
         );
 
