@@ -29,7 +29,7 @@
                 "message_type":"external"
             },
             "sucursales" : {
-                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ConsultaSucursales.svc?wsdl",
+                "url": "http://sucursales.andreani.com/ws?wsdl",
                 "method": "ConsultarSucursales",
                 "headers": ["auth"],
                 "message_type":"external"
