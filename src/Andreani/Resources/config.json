@@ -5,7 +5,7 @@
     "webservices": {
         "prod": {
             "cotizacion": {
-                "url": "https://www.e-andreani.com/CASAWS/eCommerce/CotizacionEnvio.svc?wsdl",
+                "url": "http://cotizador.andreani.com/ws?wsdl",
                 "method": "CotizarEnvio",
                 "headers": ["auth"],
                 "message_type":"external"
