@@ -5,7 +5,7 @@
     "webservices": {
         "prod": {
             "cotizacion": {
-                "url": "http://cotizador.andreani.com/ws?wsdl",
+                "url": "https://cotizador.andreani.com/ws?wsdl",
                 "method": "CotizarEnvio",
                 "headers": ["auth"],
                 "message_type":"external"
@@ -29,7 +29,7 @@
                 "message_type":"external"
             },
             "sucursales" : {
-                "url": "http://sucursales.andreani.com/ws?wsdl",
+                "url": "https://sucursales.andreani.com/ws?wsdl",
                 "method": "ConsultarSucursales",
                 "headers": ["auth"],
                 "message_type":"external"
