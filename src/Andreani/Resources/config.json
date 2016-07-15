@@ -50,7 +50,7 @@
         },
         "test": {
             "cotizacion": {
-                "url": "https://www.e-andreani.com/CasaStaging/eCommerce/CotizacionEnvio.svc?wsdl",
+                "url": "https://cotizadorpreprod.andreani.com/ws?wsdl",
                 "method": "CotizarEnvio",
                 "headers": ["auth"],
                 "message_type":"external"
@@ -74,7 +74,7 @@
                 "message_type":"external"
             },
             "sucursales" : {
-                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ConsultaSucursales.svc?wsdl",
+                "url": "https://sucursalespreprod.andreani.com/ws?wsdl",
                 "method": "ConsultarSucursales",
                 "headers": ["auth"],
                 "message_type":"external"
