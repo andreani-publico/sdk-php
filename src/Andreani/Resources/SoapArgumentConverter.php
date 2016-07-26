@@ -10,6 +10,7 @@ class SoapArgumentConverter implements ArgumentConverter{
     public function getArgumentChain(WebserviceRequest $consulta){
         if($consulta->getWebserviceIndex() == 'cotizacion') return $this->convertCotizacion($consulta);
         if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad($consulta);
+        if($consulta->getWebserviceIndex() == 'reporte_de_envios_pendientes_impresion') return $this->convertReporteDeEnviosPendientesImpresion($consulta);
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
@@ -48,7 +49,15 @@ class SoapArgumentConverter implements ArgumentConverter{
 
         return $arguments;
     }
-    
+
+    protected function convertReporteDeEnviosPendientesImpresion($consulta){
+        $arguments = array(
+            'ventas' => array('idCliente' => $consulta->getIdCliente())
+        );
+
+        return $arguments;
+    }
+
     protected function convertImpresionConstancia($consulta){
         $arguments = array(
             'entities'=> array(

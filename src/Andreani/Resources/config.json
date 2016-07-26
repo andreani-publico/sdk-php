@@ -16,6 +16,12 @@
                 "headers": [],
                 "message_type":"internal"
             },
+            "reporte_de_envios_pendientes_impresion" : {
+                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
+                "method": "ReporteDeEnviosPendientesImpresion",
+                "headers": ["auth"],
+                "message_type":"external"
+            },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
@@ -67,6 +73,12 @@
                 "method": "ObtenerTrazabilidad",
                 "headers": [],
                 "message_type":"internal"
+            },
+            "reporte_de_envios_pendientes_impresion" : {
+                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
+                "method": "ReporteDeEnviosPendientesImpresion",
+                "headers": ["auth"],
+                "message_type":"external"
             },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
