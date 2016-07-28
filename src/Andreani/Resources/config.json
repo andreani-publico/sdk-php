@@ -16,6 +16,12 @@
                 "headers": [],
                 "message_type":"internal"
             },
+            "reporte_de_envios_pendientes_impresion" : {
+                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
+                "method": "ReporteDeEnviosPendientesImpresion",
+                "headers": ["auth"],
+                "message_type":"external"
+            },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
@@ -25,6 +31,12 @@
             "estado_distribucion" : {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external"
+            },
+            "estado_distribucion_codificado" : {
+                "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucionCodificado",
                 "headers": [],
                 "message_type":"external"
             },
@@ -68,6 +80,12 @@
                 "headers": [],
                 "message_type":"internal"
             },
+            "reporte_de_envios_pendientes_impresion" : {
+                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
+                "method": "ReporteDeEnviosPendientesImpresion",
+                "headers": ["auth"],
+                "message_type":"external"
+            },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
@@ -77,6 +95,12 @@
             "estado_distribucion" : {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external"
+            },
+            "estado_distribucion_codificado" : {
+                "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucionCodificado",
                 "headers": [],
                 "message_type":"external"
             },
