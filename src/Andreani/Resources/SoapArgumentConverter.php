@@ -12,6 +12,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad($consulta);
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
+        if($consulta->getWebserviceIndex() == 'estado_distribucion_codificado') return $this->convertEstadoDistribucionCodificado($consulta);
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
         if($consulta->getWebserviceIndex() == 'confirmacion_compra') return $this->convertConfirmacionCompra($consulta);
         if($consulta->getWebserviceIndex() == 'generar_envios_de_entrega_y_retiro_con_datos_de_impresion') return $this->convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta);
@@ -72,6 +73,21 @@ class SoapArgumentConverter implements ArgumentConverter{
             )
         );
 
+        return $arguments;
+    }
+    
+    protected function convertEstadoDistribucionCodificado($consulta) {
+        $arguments = array(
+            'EnviosConsultas' => array(
+                'CodigoCliente' => $consulta->getCodigoDeCliente(),
+                'Envios' => array(
+                    'Envio' => array(
+                        'IdentificadorCliente' => $consulta->getReferenciaExterna(),
+                        'NumeroAndreani' => $consulta->getNumeroDeEnvio()
+                    )
+                )
+            )
+        );
         return $arguments;
     }
     
