@@ -10,6 +10,7 @@ class SoapArgumentConverter implements ArgumentConverter{
     public function getArgumentChain(WebserviceRequest $consulta){
         if($consulta->getWebserviceIndex() == 'cotizacion') return $this->convertCotizacion($consulta);
         if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad($consulta);
+        if($consulta->getWebserviceIndex() == 'trazabilidad_codificado') return $this->convertTrazabilidadCodificado($consulta);
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion_codificado') return $this->convertEstadoDistribucionCodificado($consulta);
@@ -33,6 +34,20 @@ class SoapArgumentConverter implements ArgumentConverter{
                 )
             );
         
+        return $arguments;
+    }
+
+    protected function convertTrazabilidadCodificado($consulta){
+        $arguments = array(
+            'ObtenerTrazabilidadCodificado' => array(
+                'NroPieza' => array(
+                    'NroPieza' => $consulta->getReferenciaExterna(), 
+                    'NroAndreani' => $consulta->getNumeroDeEnvio(), 
+                    'CodigoCliente' => $consulta->getCodigoDeCliente(),
+                )
+            )
+        );
+
         return $arguments;
     }
     

@@ -16,6 +16,12 @@
                 "headers": [],
                 "message_type":"internal"
             },
+            "trazabilidad_codificado": {
+                "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
+                "method": "ObtenerTrazabilidadCodificado",
+                "headers": [],
+                "message_type":"internal"
+            },
             "impresion_constancia" : {
                 "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "ImprimirConstancia",
@@ -71,6 +77,12 @@
             "trazabilidad": {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerTrazabilidad",
+                "headers": [],
+                "message_type":"internal"
+            },
+            "trazabilidad_codificado": {
+                "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
+                "method": "ObtenerTrazabilidadCodificado",
                 "headers": [],
                 "message_type":"internal"
             },
