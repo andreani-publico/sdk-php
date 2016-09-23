@@ -23,7 +23,7 @@ class Andreani{
     public function call(WebserviceRequest $consulta){
         $index = $consulta->getWebserviceIndex();
         $configuration = $this->configuration->$index;
-        $expose = ($this->environment == 'test');
+        $expose = true;
         
         return $this->connection->call($configuration, $this->argumentConverter->getArgumentChain($consulta),$expose);
     }
