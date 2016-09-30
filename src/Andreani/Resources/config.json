@@ -87,10 +87,11 @@
                 "message_type":"internal"
             },
             "impresion_constancia" : {
-                "url": "https://www.e-andreani.com/CASAStaging/eCommerce/ImposicionRemota.svc?wsdl",
+                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
                 "method": "ImprimirConstancia",
                 "headers": ["auth"],
-                "message_type":"external"
+                "message_type":"external",
+                "soap_version": "SOAP_1_1"
             },
             "estado_distribucion" : {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
