@@ -83,7 +83,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->provincia;
     }
 
-    protected function setProvincia($provincia)
+    public function setProvincia($provincia)
     {
         $this->provincia = $provincia;
 
@@ -95,7 +95,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->localidad;
     }
 
-    protected function setLocalidad($localidad)
+    public function setLocalidad($localidad)
     {
         $this->localidad = $localidad;
 
@@ -107,7 +107,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->codigoPostal;
     }
 
-    protected function setCodigoPostal($codigoPostal)
+    public function setCodigoPostal($codigoPostal)
     {
         $this->codigoPostal = $codigoPostal;
 
@@ -119,7 +119,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->calle;
     }
 
-    protected function setCalle($calle)
+    public function setCalle($calle)
     {
         $this->calle = $calle;
 
@@ -131,7 +131,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->numero;
     }
 
-    protected function setNumero($numero)
+    public function setNumero($numero)
     {
         $this->numero = $numero;
 
@@ -143,7 +143,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->piso;
     }
 
-    protected function setPiso($piso)
+    public function setPiso($piso)
     {
         $this->piso = $piso;
 
@@ -155,7 +155,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->departamento;
     }
 
-    protected function setDepartamento($departamento)
+    public function setDepartamento($departamento)
     {
         $this->departamento = $departamento;
 
@@ -167,7 +167,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->sucursalDeRetiro;
     }
 
-    protected function setSucursalDeRetiro($sucursalDeRetiro)
+    public function setSucursalDeRetiro($sucursalDeRetiro)
     {
         $this->sucursalDeRetiro = $sucursalDeRetiro;
 
@@ -179,7 +179,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->idCliente;
     }
 
-    protected function setIdCliente($idCliente)
+    public function setIdCliente($idCliente)
     {
         $this->idCliente = $idCliente;
 
@@ -191,7 +191,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->nombre;
     }
 
-    protected function setNombre($nombre)
+    public function setNombre($nombre)
     {
         $this->nombre = $nombre;
 
@@ -203,7 +203,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->apellido;
     }
 
-    protected function setApellido($apellido)
+    public function setApellido($apellido)
     {
         $this->apellido = $apellido;
 
@@ -215,7 +215,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->nombreAlternativo;
     }
 
-    protected function setNombreAlternativo($nombreAlternativo)
+    public function setNombreAlternativo($nombreAlternativo)
     {
         $this->nombreAlternativo = $nombreAlternativo;
 
@@ -227,7 +227,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->apellidoAlternativo;
     }
 
-    protected function setApellidoAlternativo($apellidoAlternativo)
+    public function setApellidoAlternativo($apellidoAlternativo)
     {
         $this->apellidoAlternativo = $apellidoAlternativo;
 
@@ -239,7 +239,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->tipoDeDocumento;
     }
 
-    protected function setTipoDeDocumento($tipoDeDocumento)
+    public function setTipoDeDocumento($tipoDeDocumento)
     {
         $this->tipoDeDocumento = $tipoDeDocumento;
 
@@ -251,7 +251,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->numeroDeDocumento;
     }
 
-    protected function setNumeroDeDocumento($numeroDeDocumento)
+    public function setNumeroDeDocumento($numeroDeDocumento)
     {
         $this->numeroDeDocumento = $numeroDeDocumento;
 
@@ -263,7 +263,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->email;
     }
 
-    protected function setEmail($email)
+    public function setEmail($email)
     {
         $this->email = $email;
 
@@ -275,7 +275,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->telefonoCelular;
     }
 
-    protected function setTelefonoCelular($telefonoCelular)
+    public function setTelefonoCelular($telefonoCelular)
     {
         $this->telefonoCelular = $telefonoCelular;
 
@@ -287,7 +287,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->telefonoFijo;
     }
 
-    protected function setTelefonoFijo($telefonoFijo)
+    public function setTelefonoFijo($telefonoFijo)
     {
         $this->telefonoFijo = $telefonoFijo;
 
@@ -299,7 +299,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->contrato;
     }
 
-    protected function setContrato($contrato)
+    public function setContrato($contrato)
     {
         $this->contrato = $contrato;
 
@@ -311,7 +311,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->categoriaPeso;
     }
 
-    protected function setCategoriaPeso($categoriaPeso)
+    public function setCategoriaPeso($categoriaPeso)
     {
         $this->categoriaPeso = $categoriaPeso;
 
@@ -323,7 +323,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->peso;
     }
 
-    protected function setPeso($peso)
+    public function setPeso($peso)
     {
         $this->peso = $peso;
 
@@ -335,7 +335,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->detalleDeProductosAEntregar;
     }
 
-    protected function setDetalleDeProductosAEntregar($detalleDeProductosAEntregar)
+    public function setDetalleDeProductosAEntregar($detalleDeProductosAEntregar)
     {
         $this->detalleDeProductosAEntregar = $detalleDeProductosAEntregar;
 
@@ -347,7 +347,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->detalleDeProductosARetirar;
     }
 
-    protected function setDetalleDeProductosARetirar($detalleDeProductosARetirar)
+    public function setDetalleDeProductosARetirar($detalleDeProductosARetirar)
     {
         $this->detalleDeProductosARetirar = $detalleDeProductosARetirar;
 
@@ -359,7 +359,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->volumen;
     }
 
-    protected function setVolumen($volumen)
+    public function setVolumen($volumen)
     {
         $this->volumen = $volumen;
 
@@ -371,7 +371,7 @@ class GenerarEnviosDeEntregaYRetiroConDatosDeImpresion implements WebserviceRequ
         return $this->ValorDeclaradoConIva;
     }
 
-    protected function setValorDeclaradoConIva($ValorDeclaradoConIva)
+    public function setValorDeclaradoConIva($ValorDeclaradoConIva)
     {
         $this->ValorDeclaradoConIva = $ValorDeclaradoConIva;
 
