@@ -112,7 +112,7 @@
                 "message_type":"external"
             },
             "confirmacion_compra" : {
-                "url": "https://integracionestest.andreani.com:4000/ImposicionRemota?wsdl",
+                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
                 "method": "ConfirmarCompra",
                 "headers": ["auth"],
                 "message_type":"external",
