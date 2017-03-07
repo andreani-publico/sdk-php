@@ -32,11 +32,21 @@
      }
      
      protected function getClient($url,$headers = array(), $soapVersion){
+        
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ]
+        ]);
+         
         $options = array(
             'soap_version' => constant($soapVersion),
             'exceptions' => true,
             'trace' => 1,
-            'wdsl_local_copy' => true
+            'wdsl_local_copy' => true,
+            'stream_context' => $context            
         );
 
         $client = new \SoapClient($url, $options);   
