@@ -60,7 +60,7 @@
                 "soap_version": "SOAP_1_1"
             },
             "anular_envio" : {
-                "url": "https://bpmwmbsrv.andreani.com:41443/ImposicionRemota?wsdl",
+                "url": "https://www.e-andreani.com/CASAWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "AnularEnvios",
                 "headers": ["auth"],
                 "message_type":"external",
