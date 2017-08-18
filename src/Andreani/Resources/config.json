@@ -32,13 +32,15 @@
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
-                "message_type":"external"
+                "message_type":"external",
+                "soap_version": "SOAP_1_2
             },
             "estado_distribucion_codificado" : {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucionCodificado",
                 "headers": [],
-                "message_type":"external"
+                "message_type":"external",
+                "soap_version": "SOAP_1_2
             },
             "sucursales" : {
                 "url": "https://sucursales.andreani.com/ws?wsdl",
@@ -64,7 +66,7 @@
                 "method": "AnularEnvios",
                 "headers": ["auth"],
                 "message_type":"external",
-                "soap_version": "SOAP_1_1"
+                "soap_version": "SOAP_1_2"
             }
         },
         "test": {
