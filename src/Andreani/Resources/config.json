@@ -33,14 +33,20 @@
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
                 "message_type":"external",
-                "soap_version": "SOAP_1_2
+                "soap_version": "SOAP_1_2"
+            },
+            "estado_distribucion_batch" : {
+                "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external",
+                "soap_version": "SOAP_1_2"
             },
             "estado_distribucion_codificado" : {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucionCodificado",
                 "headers": [],
-                "message_type":"external",
-                "soap_version": "SOAP_1_2
+                "message_type":"external"
             },
             "sucursales" : {
                 "url": "https://sucursales.andreani.com/ws?wsdl",
@@ -96,6 +102,12 @@
                 "soap_version": "SOAP_1_1"
             },
             "estado_distribucion" : {
+                "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external"
+            },
+            "estado_distribucion_batch" : {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
