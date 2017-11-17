@@ -32,7 +32,15 @@
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],
-                "message_type":"external"
+                "message_type":"external",
+                "soap_version": "SOAP_1_2"
+            },
+            "estado_distribucion_batch" : {
+                "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external",
+                "soap_version": "SOAP_1_2"
             },
             "estado_distribucion_codificado" : {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
@@ -60,11 +68,11 @@
                 "soap_version": "SOAP_1_1"
             },
             "anular_envio" : {
-                "url": "https://bpmwmbsrv.andreani.com:41443/ImposicionRemota?wsdl",
+                "url": "https://www.e-andreani.com/CASAWS/eCommerce/ImposicionRemota.svc?wsdl",
                 "method": "AnularEnvios",
                 "headers": ["auth"],
                 "message_type":"external",
-                "soap_version": "SOAP_1_1"
+                "soap_version": "SOAP_1_2"
             }
         },
         "test": {
@@ -94,6 +102,12 @@
                 "soap_version": "SOAP_1_1"
             },
             "estado_distribucion" : {
+                "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
+                "method": "ObtenerEstadoDistribucion",
+                "headers": [],
+                "message_type":"external"
+            },
+            "estado_distribucion_batch" : {
                 "url": "https://www.e-andreani.com/eAndreaniWSStaging/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
                 "headers": [],

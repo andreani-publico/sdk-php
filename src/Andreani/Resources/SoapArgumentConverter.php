@@ -6,22 +6,23 @@ use Andreani\Resources\WebserviceRequest;
 use Andreani\Resources\ArgumentConverter;
 
 class SoapArgumentConverter implements ArgumentConverter{
-    
+
     public function getArgumentChain(WebserviceRequest $consulta){
         if($consulta->getWebserviceIndex() == 'cotizacion') return $this->convertCotizacion($consulta);
         if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad($consulta);
         if($consulta->getWebserviceIndex() == 'trazabilidad_codificado') return $this->convertTrazabilidadCodificado($consulta);
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
+        if($consulta->getWebserviceIndex() == 'estado_distribucion_batch') return $this->convertEstadoDistribucionBatch($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion_codificado') return $this->convertEstadoDistribucionCodificado($consulta);
         if($consulta->getWebserviceIndex() == 'sucursales') return $this->convertSucursales($consulta);
         if($consulta->getWebserviceIndex() == 'confirmacion_compra') return $this->convertConfirmacionCompra($consulta);
         if($consulta->getWebserviceIndex() == 'generar_envios_de_entrega_y_retiro_con_datos_de_impresion') return $this->convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta);
         if($consulta->getWebserviceIndex() == 'anular_envio') return $this->convertAnularEnvio($consulta);
     }
-    
+
     protected function convertCotizacion($consulta){
-        $arguments = 
+        $arguments =
             array(
                 'cotizacionEnvio'=>array(
                     'CPDestino'=> $consulta->getCodigoPostal(),
@@ -33,7 +34,7 @@ class SoapArgumentConverter implements ArgumentConverter{
                     'ValorDeclarado' => $consulta->getValorDeclarado()
                 )
             );
-        
+
         return $arguments;
     }
 
@@ -41,8 +42,8 @@ class SoapArgumentConverter implements ArgumentConverter{
         $arguments = array(
             'ObtenerTrazabilidadCodificado' => array(
                 'NroPieza' => array(
-                    'NroPieza' => $consulta->getReferenciaExterna(), 
-                    'NroAndreani' => $consulta->getNumeroDeEnvio(), 
+                    'NroPieza' => $consulta->getReferenciaExterna(),
+                    'NroAndreani' => $consulta->getNumeroDeEnvio(),
                     'CodigoCliente' => $consulta->getCodigoDeCliente(),
                 )
             )
@@ -50,13 +51,13 @@ class SoapArgumentConverter implements ArgumentConverter{
 
         return $arguments;
     }
-    
+
     protected function convertTrazabilidad($consulta){
         $arguments = array(
             'ObtenerTrazabilidad' => array(
                 'Pieza' => array(
-                    'NroPieza' => $consulta->getReferenciaExterna(), 
-                    'NroAndreani' => $consulta->getNumeroDeEnvio(), 
+                    'NroPieza' => $consulta->getReferenciaExterna(),
+                    'NroAndreani' => $consulta->getNumeroDeEnvio(),
                     'CodigoCliente' => $consulta->getCodigoDeCliente(),
                 )
             )
@@ -64,17 +65,17 @@ class SoapArgumentConverter implements ArgumentConverter{
 
         return $arguments;
     }
-    
+
     protected function convertImpresionConstancia($consulta){
         $arguments = array(
             'entities'=> array(
                 'ParamImprimirConstancia'=>array('NumeroAndreani'=>$consulta->getNumeroDeEnvio())
             )
-        );   
-        
+        );
+
         return $arguments;
     }
-    
+
     protected function convertEstadoDistribucion($consulta){
         $arguments = array(
             'Consulta' => array(
@@ -90,7 +91,28 @@ class SoapArgumentConverter implements ArgumentConverter{
 
         return $arguments;
     }
-    
+
+    protected function convertEstadoDistribucionBatch($consulta){
+
+        $piezas = array();
+        $count = $consulta->count();
+        for ($i=0; $i < $count; $i++) {
+            $piezas[] = array(
+                'NroPieza' => $consulta->getReferenciaExterna($i),
+                'NroAndreani' => $consulta->getNumeroDeEnvio($i)
+            );
+        }
+
+        $arguments = array(
+            'Consulta' => array(
+                'CodigoCliente' => $consulta->getCodigoDeCliente(),
+                'Piezas' => $piezas
+            )
+        );
+
+        return $arguments;
+    }
+
     protected function convertEstadoDistribucionCodificado($consulta) {
         $arguments = array(
             'EnviosConsultas' => array(
@@ -105,7 +127,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         );
         return $arguments;
     }
-    
+
     protected function convertSucursales($consulta){
         $arguments = array(
             'consulta'=>array(
@@ -114,10 +136,10 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'Provincia'=>$consulta->getProvincia()
             )
         );
-        
+
         return $arguments;
     }
-    
+
     protected function convertConfirmacionCompra($consulta){
         $arguments = array(
             'compra' => array(
@@ -154,7 +176,7 @@ class SoapArgumentConverter implements ArgumentConverter{
 
         return $arguments;
     }
-    
+
     protected function convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta){
         $arguments = array(
             'parametros' => array(
@@ -189,15 +211,15 @@ class SoapArgumentConverter implements ArgumentConverter{
 
         return $arguments;
     }
-    
+
     public function convertAnularEnvio($consulta){
         $arguments = array(
             'envios'=> array(
                 'ParamAnularEnvios'=>array('NumeroAndreani'=>$consulta->getNumeroDeEnvio())
             )
-        );   
-        
+        );
+
         return $arguments;
     }
-    
+
 }
