@@ -18,6 +18,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'confirmacion_compra') return $this->convertConfirmacionCompra($consulta);
         if($consulta->getWebserviceIndex() == 'generar_envios_de_entrega_y_retiro_con_datos_de_impresion') return $this->convertGenerarEnviosDeEntregaYRetiroConDatosDeImpresion($consulta);
         if($consulta->getWebserviceIndex() == 'anular_envio') return $this->convertAnularEnvio($consulta);
+        if($consulta->getWebserviceIndex() == 'generar_envio_con_datos_de_impresion_y_remitente') return $this->convertGenerarEnvioConDatosDeImpresionYRemitente($consulta);
     }
     
     protected function convertCotizacion($consulta){
@@ -196,6 +197,135 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'ParamAnularEnvios'=>array('NumeroAndreani'=>$consulta->getNumeroDeEnvio())
             )
         );   
+        
+        return $arguments;
+    }
+    
+    protected function convertGenerarEnvioConDatosDeImpresionYRemitente($consulta) {
+        
+        //  Datos del destinatario
+        
+        $destinatario = array(
+            'apellido' => $consulta->getApellidoDestinatario(),
+            'apellidoAlternativo' => $consulta->getApellidoAlternativoDestinatario(),
+            'nombre' => $consulta->getNombreDestinatario(),
+            'nombreAlternativo' => $consulta->getNombreAlternativoDestinatario()
+        );
+        if ($consulta->getNumeroDocumentoDestinatario() != null) {
+            $destinatario["numeroDeDocumento"] = intval($consulta->getNumeroDocumentoDestinatario());
+            if ($consulta->getTipoDocumentoDestinatario() != null) {
+                $destinatario["tipoDeDocumento"] = $consulta->getTipoDocumentoDestinatario();
+            } else {
+                $destinatario["tipoDeDocumento"] = 'DNI';
+            }
+        }
+        if ($consulta->getMailDestinatario() != null) {
+            $destinatario["email"] = $consulta->getMailDestinatario();
+        }
+        if ($consulta->getTelefonoFijoDestinatario() != null || $consulta->getTelefonoCelularDestinatario() != null) {
+            $destinatario["telefonos"]["Telefono"] = array();
+            if ($consulta->getTelefonoFijoDestinatario() != null) {
+                $destinatario["telefonos"]["Telefono"][] = array(
+                    'numero' => intval($consulta->getTelefonoFijoDestinatario()),
+                    'tipo' => "casa"
+                );
+            }
+            if ($consulta->getTelefonoCelularDestinatario() != null) {
+                $destinatario["telefonos"]["Telefono"][] = array(
+                    'numero' => intval($consulta->getTelefonoCelularDestinatario()),
+                    'tipo' => "movil"
+                );
+            }
+        }
+        //  Datos del destino
+        
+        $destino = array(
+            'calle' => $consulta->getCalleDestino(),
+            'departamento' => $consulta->getDepartamentoDestino(),
+            'localidad' => $consulta->getLocalidadDestino(),
+            'pais' => $consulta->getPaisDestino(),
+            'piso' => $consulta->getPisoDestino(),
+            'provincia' => $consulta->getProvinciaDestino()
+        );
+        if ($consulta->getNumeroDomicilioDestino() != null) {
+            $destino["alturaDeDomicilio"] = $consulta->getNumeroDomicilioDestino();
+        }
+        if ($consulta->getCodigoPostalDestino() != null) {
+            $destino["codigoPostal"] = $consulta->getCodigoPostalDestino();
+        }
+        
+        //  Datos del Remitente 
+        
+        $remitente = array(
+            'apellido' => $consulta->getApellidoRemitente(),
+            'apellidoAlternativo' => $consulta->getApellidoAlternativoRemitente(),
+            'nombre' => $consulta->getNombreRemitente(),
+            'nombreAlternativo' => $consulta->getNombreAlternativoRemitente(),
+            'telefonos' => array(
+                'Telefono' => array(
+                    'numero' => intval($consulta->getTelefonoFijoRemitente()? : 0),
+                    'tipo' => "casa"
+                ),
+                'Telefono' => array(
+                    'numero' => intval($consulta->getTelefonoCelularRemitente()? : 0),
+                    'tipo' => "movil"
+                )
+            ),
+        );
+        if ($consulta->getNumeroDocumentoRemitente() != null) {
+            $remitente["numeroDeDocumento"] = intval($consulta->getNumeroDocumentoRemitente());
+            if ($consulta->getTipoDocumentoRemitente() != null) {
+                $remitente["tipoDeDocumento"] = $consulta->getTipoDocumentoRemitente();
+            } else {
+                $remitente["tipoDeDocumento"] = 'DNI';
+            }
+        }
+        if ($consulta->getMailRemitente() != null) {
+            $remitente["email"] = $consulta->getMailRemitente();
+        }
+        
+        //  Datos del origen
+        
+        $origen = array(
+            'calle' => $consulta->getCalleOrigen(),
+            'departamento' => $consulta->getDepartamentoOrigen(),
+            'localidad' => $consulta->getLocalidadOrigen(),
+            'pais' => $consulta->getPaisOrigen(),
+            'piso' => $consulta->getPisoOrigen(),
+            'provincia' => $consulta->getProvinciaOrigen()
+        );
+        if ($consulta->getNumeroDomicilioOrigen() != null) {
+            $origen["alturaDeDomicilio"] = $consulta->getNumeroDomicilioOrigen();
+        }
+        if ($consulta->getCodigoPostalOrigen() != null) {
+            $origen["codigoPostal"] = $consulta->getCodigoPostalOrigen();
+        }
+        //  Argumentos a enviar al web service
+        
+        $arguments = array(
+            'parametros' => array(
+                'contrato' => $consulta->getContrato(),
+                'destinatario' => $destinatario,
+                'destino' => $destino,
+                'detalleDeProductoAEntregar' => $consulta->getDetalleProductosEntregar(),
+                'detalleDeProductosARetirar' => $consulta->getDetalleProductosRetirar(),
+                'fechasPactadas' => $consulta->getFechasPactadas(),
+                'idCliente' => $consulta->getIdCliente(),
+                'origen' => $origen,
+                'pesoNetoDelEnvioEnGr' => $consulta->getPesoNetoDelEnvioEnGr(),
+                'remitente' => $remitente,
+                'tarifa' => intval($consulta->getTarifa()),
+                'valorDeclaradoConIva' => doubleval($consulta->getValorDeclaradoConIVA()),
+                'volumenDelEnvioEnCm3' => intval($consulta->getVolumenDelEnvioEnCm3()),
+                'sucursalDeImposicion' => intval($consulta->getSucursalImposicion())
+            )
+        );
+        if ($consulta->getCategoriaPeso() != null) {
+            $arguments["parametros"]["categoriaDePeso"] = $consulta->getCategoriaPeso();
+        }
+        if ($consulta->getSucursalDeRetiro() != null) {
+            $arguments["parametros"]["sucursalDeRetiro"] = intval($consulta->getSucursalDeRetiro());
+        }
         
         return $arguments;
     }
