@@ -23,10 +23,11 @@
                 "message_type":"internal"
             },
             "impresion_constancia" : {
-                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
+                "url": "https://integraciones.andreani.com:5000/E-ImposicionRemota?wsdl",
                 "method": "ImprimirConstancia",
                 "headers": ["auth"],
-                "message_type":"external"
+                "message_type":"external",
+                "soap_version": "SOAP_1_1"
             },
             "estado_distribucion" : {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
@@ -47,27 +48,28 @@
                 "message_type":"external"
             },
             "confirmacion_compra" : {
-                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
+                "url": "https://integraciones.andreani.com:5000/E-ImposicionRemota?wsdl",
                 "method": "ConfirmarCompra",
                 "headers": ["auth"],
-                "message_type":"external"
+                "message_type":"external",
+                "soap_version": "SOAP_1_1"
             },
             "generar_envio_con_datos_de_impresion_y_remitente" : {
-                "url": "https://bpmwmbsrv.andreani.com:41443/DatosImpresion?wsdl",
+                "url": "https://integraciones.andreani.com:5000/DatosImpresion?wsdl",
                 "method": "GenerarEnvioConDatosDeImpresionYRemitente",
                 "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"
             },
             "generar_envios_de_entrega_y_retiro_con_datos_de_impresion" : {
-                "url": "https://bpmwmbsrv.andreani.com:41443/DatosImpresion?wsdl",
+                "url": "https://integraciones.andreani.com:5000/DatosImpresion?wsdl",
                 "method": "GenerarEnviosDeEntregaYRetiroConDatosDeImpresion",
                 "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"
             },
             "anular_envio" : {
-                "url": "https://bpmwmbsrv.andreani.com:41443/ImposicionRemota?wsdl",
+                "url": "https://integraciones.andreani.com:5000/E-ImposicionRemota?wsdl",
                 "method": "AnularEnvios",
                 "headers": ["auth"],
                 "message_type":"external",
@@ -94,7 +96,7 @@
                 "message_type":"internal"
             },
             "impresion_constancia" : {
-                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
+                "url": "https://integracionestest.andreani.com:4000/E-ImposicionRemota?wsdl",
                 "method": "ImprimirConstancia",
                 "headers": ["auth"],
                 "message_type":"external",
@@ -119,28 +121,28 @@
                 "message_type":"external"
             },
             "confirmacion_compra" : {
-                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
+                "url": "https://integracionestest.andreani.com:4000/E-ImposicionRemota?wsdl",
                 "method": "ConfirmarCompra",
                 "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"
             },
             "generar_envio_con_datos_de_impresion_y_remitente" : {
-                "url": "https://bpmwmbsrvtest.andreani.com:7084/Ecommerce/DatosImpresion?wsdl",
+                "url": "https://integracionestest.andreani.com:4000/DatosImpresion?wsdl",
                 "method": "GenerarEnvioConDatosDeImpresionYRemitente",
                 "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"
             },
             "generar_envios_de_entrega_y_retiro_con_datos_de_impresion" : {
-                "url": "https://bpmwmbsrvtest.andreani.com:7084/Ecommerce/DatosImpresion?wsdl",
+                "url": "https://integracionestest.andreani.com:4000/DatosImpresion?wsdl",
                 "method": "GenerarEnviosDeEntregaYRetiroConDatosDeImpresion",
                 "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"
             },
             "anular_envio" : {
-                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
+                "url": "https://integracionestest.andreani.com:4000/E-ImposicionRemota?wsdl",
                 "method": "AnularEnvios",
                 "headers": ["auth"],
                 "message_type":"external",
