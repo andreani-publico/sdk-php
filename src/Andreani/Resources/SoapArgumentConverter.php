@@ -12,6 +12,7 @@ class SoapArgumentConverter implements ArgumentConverter{
         if($consulta->getWebserviceIndex() == 'trazabilidad') return $this->convertTrazabilidad($consulta);
         if($consulta->getWebserviceIndex() == 'trazabilidad_codificado') return $this->convertTrazabilidadCodificado($consulta);
         if($consulta->getWebserviceIndex() == 'impresion_constancia') return $this->convertImpresionConstancia($consulta);
+        if($consulta->getWebserviceIndex() == 'reimpresion_etiquetas') return $this->convertReimpresionEtiquetas($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion') return $this->convertEstadoDistribucion($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion_batch') return $this->convertEstadoDistribucionBatch($consulta);
         if($consulta->getWebserviceIndex() == 'estado_distribucion_codificado') return $this->convertEstadoDistribucionCodificado($consulta);
@@ -70,6 +71,16 @@ class SoapArgumentConverter implements ArgumentConverter{
         $arguments = array(
             'entities'=> array(
                 'ParamImprimirConstancia'=>array('NumeroAndreani'=>$consulta->getNumeroDeEnvio())
+            )
+        );
+
+        return $arguments;
+    }
+
+    protected function convertReimpresionEtiquetas($consulta){
+        $arguments = array(
+            'entities'=> array(
+                'ParamReimpresionEtiquetas'=>array('NumeroAndreani'=>$consulta->getNumeroDeEnvio())
             )
         );
 

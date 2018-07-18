@@ -9,7 +9,7 @@ class ObtenerEstadoDistribucion implements WebserviceRequest{
     protected $codigoDeCliente;
     protected $referenciaExterna;
     protected $numeroDeEnvio;
-    
+
     public function getCodigoDeCliente() {
         return (string) $this->codigoDeCliente;
     }

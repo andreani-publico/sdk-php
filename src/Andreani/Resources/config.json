@@ -28,6 +28,12 @@
                 "headers": ["auth"],
                 "message_type":"external"
             },
+            "reimpresion_etiquetas": {
+                "url": "https://www.e-andreani.com/CasaWS/eCommerce/ImposicionRemota.svc?wsdl",
+                "method": "ReimpresionEtiquetas",
+                "headers": ["auth"],
+                "message_type":"external"
+            },
             "estado_distribucion" : {
                 "url": "https://www.e-andreani.com/eAndreaniWS/Service.svc?wsdl",
                 "method": "ObtenerEstadoDistribucion",
@@ -97,6 +103,13 @@
             "impresion_constancia" : {
                 "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
                 "method": "ImprimirConstancia",
+                "headers": ["auth"],
+                "message_type":"external",
+                "soap_version": "SOAP_1_1"
+            },
+            "reimpresion_etiquetas": {
+                "url": "https://bpmwmbsrvtest.andreani.com:7084/ImposicionRemota?wsdl",
+                "method": "ReimpresionEtiquetas",
                 "headers": ["auth"],
                 "message_type":"external",
                 "soap_version": "SOAP_1_1"

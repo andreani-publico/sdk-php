@@ -5,7 +5,7 @@ namespace Andreani\Requests;
 use Andreani\Resources\WebserviceRequest;
 
 class ConfirmarCompra implements WebserviceRequest{
-    
+
     // Sobre el destino
     protected $provincia;
     protected $localidad;
@@ -16,7 +16,7 @@ class ConfirmarCompra implements WebserviceRequest{
     protected $departamento;
     protected $codigoDeSucursal;
     protected $sucursalCliente;
-    
+
     // Sobre el destinatario
     protected $nombreYApellido;
     protected $nombreYApellidoAlternativo;
@@ -25,13 +25,13 @@ class ConfirmarCompra implements WebserviceRequest{
     protected $email;
     protected $numeroDeCelular;
     protected $numeroDeTelefono;
-   
+
     // Sobre la transaccion
     protected $numeroDeContrato;
     protected $numeroDeTransaccion;
     protected $tarifa;
     protected $valorACobrar;
-    
+
     // Sobre el envio
     protected $categoriaDistancia;
     protected $categoriaFacturacion;
@@ -41,7 +41,7 @@ class ConfirmarCompra implements WebserviceRequest{
     protected $detalleProductosRetiro;
     protected $volumen;
     protected $valorDeclarado;
-    
+
     public function setDatosDestino($provincia = null,$localidad = null,$codigoPostal = null,$calle = null,$numero = null,$piso = null,$departamento = null,$codigoDeSucursal = null,$sucursalCliente = null){
         $this ->setProvincia($provincia)
                 ->setLocalidad($localidad)
@@ -53,7 +53,7 @@ class ConfirmarCompra implements WebserviceRequest{
                 ->setCodigoDeSucursal($codigoDeSucursal)
                 ->setSucursalCliente($sucursalCliente);
     }
-    
+
     public function setDatosDestinatario($nombreYApellido = null,$nombreYApellidoAlternativo = null,$tipoDeDocumento = null,$numeroDeDocumento = null,$email = null,$numeroDeCelular = null,$numeroDeTelefono = null){
         $this ->setNombreYApellido($nombreYApellido)
                 ->setNombreYApellidoAlternativo($nombreYApellidoAlternativo)
@@ -63,14 +63,14 @@ class ConfirmarCompra implements WebserviceRequest{
                 ->setNumeroDeCelular($numeroDeCelular)
                 ->setNumeroDeTelefono($numeroDeTelefono);
     }
-    
+
     public function setDatosTransaccion($numeroDeContrato = null,$numeroDeTransaccion = null,$tarifa = null,$valorACobrar = null){
         $this ->setNumeroDeContrato($numeroDeContrato)
                 ->setNumeroDeTransaccion($numeroDeTransaccion)
                 ->setTarifa($tarifa)
                 ->setValorACobrar($valorACobrar);
     }
-    
+
     public function setDatosEnvio($peso = null, $volumen = null,$valorDeclarado = null, $categoriaDistancia = null,$categoriaFacturacion = null, $categoriaPeso = null, $detalleProductosEntrega = null,$detalleProductosRetiro = null){
         $this ->setCategoriaDistancia($categoriaDistancia)
                 ->setCategoriaFacturacion($categoriaFacturacion)
@@ -81,7 +81,7 @@ class ConfirmarCompra implements WebserviceRequest{
                 ->setVolumen($volumen)
                 ->setValorDeclarado($valorDeclarado);
     }
- 
+
     public function getProvincia() {
         return $this->provincia;
     }
@@ -326,7 +326,7 @@ class ConfirmarCompra implements WebserviceRequest{
     }
 
     public function getValorDeclarado() {
-        return (int) $this->valorDeclarado;
+        return (double) $this->valorDeclarado;
     }
 
     public function setValorDeclarado($valorDeclarado) {
@@ -337,5 +337,5 @@ class ConfirmarCompra implements WebserviceRequest{
     public function getWebserviceIndex() {
         return 'confirmacion_compra';
     }
-    
+
 }

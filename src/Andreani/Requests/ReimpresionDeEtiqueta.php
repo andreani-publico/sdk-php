@@ -4,7 +4,7 @@ namespace Andreani\Requests;
 
 use Andreani\Resources\WebserviceRequest;
 
-class ImpresionDeConstancia implements WebserviceRequest{
+class ReimpresionDeEtiqueta implements WebserviceRequest{
 
     public $numeroDeEnvio;
 
@@ -18,7 +18,7 @@ class ImpresionDeConstancia implements WebserviceRequest{
     }
 
     public function getWebserviceIndex() {
-        return 'impresion_constancia';
+        return 'reimpresion_etiquetas';
     }
 
 }
