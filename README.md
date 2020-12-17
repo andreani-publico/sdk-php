@@ -1,4 +1,5 @@
-# SDK de PHP para integración con servicios Andreani
+# SDK de PHP para integración con servicios Andreani `[deprecado]`
+`Este servicio se encuentra DEPRECADO, sin mantenimiento. Para integraciones consultar nuestra documentación en https://developers.andreani.com/documentacion `
 
 * [Instalación](#instalacion)
 * [Uso](#uso)
