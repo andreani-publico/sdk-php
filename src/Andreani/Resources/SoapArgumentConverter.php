@@ -317,7 +317,7 @@ class SoapArgumentConverter implements ArgumentConverter{
                 'tarifa' => intval($consulta->getTarifa()),
                 'valorDeclaradoConIva' => doubleval($consulta->getValorDeclaradoConIVA()),
                 'volumenDelEnvioEnCm3' => intval($consulta->getVolumenDelEnvioEnCm3()),
-                'sucursalDeImposicion' => intval($consulta->getSucursalImposicion())
+                'sucursalDeImposicion' => $consulta->getSucursalImposicion()
             )
         );
         if ($consulta->getCategoriaPeso() != null) {
